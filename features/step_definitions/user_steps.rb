@@ -30,10 +30,10 @@ end
 def sign_up
   delete_user
   visit '/users/sign_up'
-  fill_in "user_name", :with => @visitor[:name]
-  fill_in "user_email", :with => @visitor[:email]
-  fill_in "user_password", :with => @visitor[:password]
-  fill_in "user_password_confirmation", :with => @visitor[:password_confirmation]
+  #fill_in "user_name", :with => @visitor[:name]
+  fill_in "email", :with => @visitor[:email]
+  fill_in "password", :with => @visitor[:password]
+  fill_in "password_confirmation", :with => @visitor[:password_confirmation]
   click_button "Sign up"
   find_user
 end
@@ -122,9 +122,11 @@ When /^I sign in with a wrong password$/ do
 end
 
 When /^I edit my account details$/ do
-  click_link "Edit account"
-  fill_in "user_name", :with => "newname"
-  fill_in "user_current_password", :with => @visitor[:password]
+  click_link "Account"
+  fill_in "Email", :with => "example@example.com"
+  fill_in "Password", :with => "newpassword"
+  fill_in "Password confirmation", :with => "newpassword"
+  fill_in "Current password", :with => @visitor[:password]
   click_button "Update"
 end
 

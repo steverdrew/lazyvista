@@ -45,8 +45,9 @@ gem 'haml-rails'
 
 group :test do
   gem 'cucumber-rails', :require => false
-  # database_cleaner is not required, but highly recommended
+   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'rspec-rails'
+  gem 'launchy'
 end
