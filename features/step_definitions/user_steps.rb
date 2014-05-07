@@ -28,24 +28,43 @@ def delete_user
 end
 
 def sign_up
+  create_visitor
   delete_user
-  visit '/users/sign_up'
-  #fill_in "user_name", :with => @visitor[:name]
-  fill_in "email", :with => @visitor[:email]
-  fill_in "password", :with => @visitor[:password]
-  fill_in "password_confirmation", :with => @visitor[:password_confirmation]
+  visit root_path
+  click_link 'Sign up'
+  #fill_in "First name", :with => @visitor[:first_name]
+  #fill_in "Last name", :with => @visitor[:last_name]
+  fill_in "Email", :with => @visitor[:email]
+  fill_in "Password", :with => @visitor[:password]
+  fill_in "Password confirmation", :with => @visitor[:password_confirmation]
   click_button "Sign up"
   find_user
 end
 
 def sign_in
-  visit '/users/sign_in'
-  fill_in "user_email", :with => @visitor[:email]
-  fill_in "user_password", :with => @visitor[:password]
+  visit root_path
+  click_link "Login"
+  fill_in "Email", :with => @visitor[:email]
+  fill_in "Password", :with => @visitor[:password]
   click_button "Sign in"
 end
 
+def edit_account
+  click_link "Account"
+  fill_in "Email", :with => "example@example.com"
+  #fill_in "First name", :with => @visitor[:first_name]
+  #fill_in "Last name", :with => @visitor[:last_name]
+  fill_in "Password", :with => "newpassword"
+  fill_in "Password confirmation", :with => "newpassword"
+  fill_in "Current password", :with => @visitor[:password]
+  click_button "Update"
+end
+
 ### GIVEN ###
+Given /^I am not a user$/ do
+  sign_up
+end
+
 Given /^I am not logged in$/ do
   visit '/users/sign_out'
 end
@@ -122,12 +141,7 @@ When /^I sign in with a wrong password$/ do
 end
 
 When /^I edit my account details$/ do
-  click_link "Account"
-  fill_in "Email", :with => "example@example.com"
-  fill_in "Password", :with => "newpassword"
-  fill_in "Password confirmation", :with => "newpassword"
-  fill_in "Current password", :with => @visitor[:password]
-  click_button "Update"
+   edit_account
 end
 
 When /^I look at the list of users$/ do
