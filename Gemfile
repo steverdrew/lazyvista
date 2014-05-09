@@ -42,6 +42,7 @@ gem 'foundation-rails'
 #gem 'mongoid', '~> 4.0.0.beta1', github: 'mongoid/mongoid'
 gem 'devise'
 gem 'haml-rails'
+gem 'omniauth-facebook'
 
 group :test do
   gem 'cucumber-rails', :require => false
