@@ -9,15 +9,20 @@
   %section.top-bar-section
     %ul.right
       - if user_signed_in? 
+        %li.has-dropdown
+          = link_to "My Properties", properties_path
+          %ul.dropdown
+            %li
+              = link_to "New", new_property_path
+            %li
+              = link_to "Manage", properties_path       
         %li
-          = link_to "Properties", edit_user_registration_path
-        %li
-          = link_to "Bookings", edit_user_registration_path
+          = link_to "My Bookings", edit_user_registration_path
         %li
           = link_to "Account", edit_user_registration_path
         - if current_user.admin?
           %li
-            = link_to "Admin", edit_user_registration_path
+            = link_to "Admin", users_index_path
         %li.active
           = link_to "Logout", destroy_user_session_path, :method => :delete
        

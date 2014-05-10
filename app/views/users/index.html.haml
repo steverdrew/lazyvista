@@ -1,0 +1,13 @@
+%h1 Listing users
+%table
+  %tr
+    %th Title
+    %th Text
+    %th{colspan: "2"}
+  - @users.each do |user|
+    %tr
+      %td= user.name
+      %td= user.email
+      %td= link_to 'Show'
+      %td= link_to 'Edit', edit_user_registration_path(user)
+      %td= link_to 'Destroy'
