@@ -7,3 +7,9 @@ Feature: Sign up
       Given I am not a user
       When I sign up with valid user data
       Then I should see a confirmation link message to activate my account
+      
+    Scenario: User requires new email confirmation
+      Given I am not a user
+      When I sign up with valid user data
+      Then I should see a confirmation link message to activate my account
+      And I require a new confrmation email

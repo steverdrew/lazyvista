@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+user = User.find_or_initialize_by(name: "admin")
+user.update(name: 'admin', email: 'admin@lazyvista.com', password: 'admin')

@@ -16,6 +16,7 @@ Feature: Sign in
       Then I see a successful sign in message
       When I return to the site
       Then I should be signed in
+      And should not see the admin section
 
     Scenario: User enters wrong email
       Given I exist as a user
@@ -31,4 +32,8 @@ Feature: Sign in
       Then I see an invalid login message
       And I should be signed out
 
-      
+     Scenario: Admin user signs in
+       Given I exist as an admin user
+       And I am not logged in
+       When I sign in as an admin user
+       Then I see the admin section

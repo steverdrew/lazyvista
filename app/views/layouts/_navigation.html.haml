@@ -10,7 +10,13 @@
     %ul.right
       - if user_signed_in? 
         %li
+          = link_to "Properties", edit_user_registration_path
+        %li
+          = link_to "Bookings", edit_user_registration_path
+        %li
           = link_to "Account", edit_user_registration_path
+          - if current_user.admin?
+            = link_to "Admin", edit_user_registration_path
         %li.active
           = link_to "Logout", destroy_user_session_path, :method => :delete
        

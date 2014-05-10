@@ -16,6 +16,19 @@ def create_unconfirmed_user
   visit '/users/sign_out'
 end
 
+def create_admin_user
+  @admin_user ||= { :name => "Testy Admin", :email => "admin@example.com", :admin => true,
+    :password => "changeme", :password_confirmation => "changeme" }
+  delete_admin_user 
+  @user = FactoryGirl.create(:user, @admin_user)
+  @user.confirm!
+end
+
+def delete_admin_user
+  @user ||= User.where(:email => @admin_user[:email]).first
+  @user.destroy unless @user.nil?
+end
+
 def create_user
   create_visitor
   delete_user
@@ -50,6 +63,14 @@ def sign_in
   click_button "Sign in"
 end
 
+def sign_in_as_admin
+  visit root_path
+  click_link "Login"
+  fill_in "Email", :with => @admin_user[:email]
+  fill_in "Password", :with => @admin_user[:password]
+  click_button "Sign in"
+end
+
 def edit_account
   click_link "Account"
   fill_in "Email", :with => "example@example.com"
@@ -59,6 +80,15 @@ def edit_account
   fill_in "Password confirmation", :with => "newpassword"
   fill_in "Current password", :with => @visitor[:password]
   click_button "Update"
+end
+
+def request_new_confirmation_email
+  visit root_path
+  click_link "Sign up"
+  click_link "Didn't receive confirmation instructions?"
+  fill_in "Email", :with => @visitor[:email]
+  click_button "Resend confirmation instructions"
+  page.should have_content "You will receive an email with instructions about how to confirm your account in a few minutes."
 end
 
 ### GIVEN ###
@@ -87,6 +117,11 @@ end
 Given /^I exist as an unconfirmed user$/ do
   create_unconfirmed_user
 end
+
+Given /^I exist as an admin user$/ do
+  create_admin_user
+end
+
 
 ### WHEN ###
 When /^I sign in with valid credentials$/ do
@@ -157,6 +192,10 @@ When /^I am on the account page$/ do
    visit '/users/edit'
 end
 
+When /^I sign in as an admin user$/ do
+  sign_in_as_admin
+end
+
 ### THEN ###
 Then /^I should be signed in$/ do
   page.should have_content "Logout"
@@ -224,6 +263,17 @@ Then /^I see the home page$/ do
 end
 
 Then /^I should see a confirmation link message to activate my account$/ do
-  page.should have_content"A message with a confirmation link has been sent to your email address. Please open the link to activate your account."
+  page.should have_content "A message with a confirmation link has been sent to your email address. Please open the link to activate your account."
 end
 
+Then /^I require a new confrmation email$/ do
+  request_new_confirmation_email
+end
+
+Then /^I see the admin section$/ do
+  page.should have_content "Admin"
+end
+
+Then /^I should not see the admin section$/ do
+  page.should_not have_content "Admin"
+end
