@@ -15,7 +15,8 @@
           = link_to "Bookings", edit_user_registration_path
         %li
           = link_to "Account", edit_user_registration_path
-          - if current_user.admin?
+        - if current_user.admin?
+          %li
             = link_to "Admin", edit_user_registration_path
         %li.active
           = link_to "Logout", destroy_user_session_path, :method => :delete
