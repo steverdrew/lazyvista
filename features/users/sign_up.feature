@@ -6,4 +6,4 @@ Feature: Sign up
     Scenario: User signs up
       Given I am not a user
       When I sign up with valid user data
-      Then I should see a successful sign up message
+      Then I should see a confirmation link message to activate my account

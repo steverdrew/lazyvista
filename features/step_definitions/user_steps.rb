@@ -20,6 +20,7 @@ def create_user
   create_visitor
   delete_user
   @user = FactoryGirl.create(:user, @visitor)
+  @user.confirm!
 end
 
 def delete_user
@@ -148,6 +149,14 @@ When /^I look at the list of users$/ do
   visit '/'
 end
 
+When /^I am on the login page$/ do
+   visit '/users/sign_in'
+end
+
+When /^I am on the account page$/ do
+   visit '/users/edit'
+end
+
 ### THEN ###
 Then /^I should be signed in$/ do
   page.should have_content "Logout"
@@ -205,3 +214,16 @@ Then /^I should see my name$/ do
   create_user
   page.should have_content @user[:name]
 end
+
+Then /^I click on the main logo$/ do
+   click_link "Home"
+end
+
+Then /^I see the home page$/ do
+   page.should have_content "Welcome Home"
+end
+
+Then /^I should see a confirmation link message to activate my account$/ do
+  page.should have_content"A message with a confirmation link has been sent to your email address. Please open the link to activate your account."
+end
+
