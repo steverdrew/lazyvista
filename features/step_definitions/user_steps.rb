@@ -16,18 +16,6 @@ create_visitor
   visit '/users/sign_out'
 end
 
-def create_admin_user
-  @admin_user ||= { :name => "Testy Admin", :email => "admin@example.com", :admin => true,
-    :password => "changeme", :password_confirmation => "changeme" }
-  delete_admin_user 
-  @user = FactoryGirl.create(:user, @admin_user)
-  @user.confirm!
-end
-
-def delete_admin_user
-  @user ||= User.where(:email => @admin_user[:email]).first
-  @user.destroy unless @user.nil?
-end
 
 def create_user
   create_visitor
@@ -60,14 +48,6 @@ def sign_in
   click_link "Login"
   fill_in "Email", :with => @visitor[:email]
   fill_in "Password", :with => @visitor[:password]
-  click_button "Sign in"
-end
-
-def sign_in_as_admin
-  visit root_path
-  click_link "Login"
-  fill_in "Email", :with => @admin_user[:email]
-  fill_in "Password", :with => @admin_user[:password]
   click_button "Sign in"
 end
 
@@ -117,11 +97,6 @@ end
 Given /^I exist as an unconfirmed user$/ do
   create_unconfirmed_user
 end
-
-Given /^I exist as an admin user$/ do
-  create_admin_user
-end
-
 
 ### WHEN ###
 When /^I sign in with valid credentials$/ do
@@ -190,10 +165,6 @@ end
 
 When /^I am on the account page$/ do
    visit '/users/edit'
-end
-
-When /^I sign in as an admin user$/ do
-  sign_in_as_admin
 end
 
 When /^I delete my account$/ do
@@ -276,12 +247,4 @@ end
 
 Then /^I require a new confrmation email$/ do
   request_new_confirmation_email
-end
-
-Then /^I see the admin section$/ do
-  page.should have_content "Admin"
-end
-
-Then /^I should not see the admin section$/ do
-  page.should_not have_content "Admin"
 end
