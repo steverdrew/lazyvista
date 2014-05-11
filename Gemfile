@@ -43,6 +43,7 @@ gem 'foundation-rails'
 gem 'devise'
 gem 'haml-rails'
 gem 'omniauth-facebook'
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 group :test do
   gem 'cucumber-rails', :require => false
