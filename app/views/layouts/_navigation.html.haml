@@ -10,10 +10,10 @@
     %ul.right
       - if user_signed_in? 
         %li.has-dropdown
-          = link_to "My Properties", properties_path
+          = link_to "My Properties", properties_path, id: "properties"
           %ul.dropdown
             %li
-              = link_to "New", new_property_path
+              = link_to "New", new_property_path, id: "new_property"
             %li
               = link_to "Manage", properties_path       
         %li
