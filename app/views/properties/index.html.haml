@@ -1,11 +1,14 @@
-%h1 Manage properties
-%table
-  %tr
-    %th Name
-    %th Description
-  - @properties.each do |property|
-    %tr
-      %td= property.name
-      %td= property.description
-      %td= link_to 'Show', property_path(property)
-      %td= link_to 'Edit', edit_property_path(property)
+.row
+  .small-12.large-12.columns
+    %h2= 'Manage my properties'
+    %table  
+      %tr  
+        %th Name
+        %th Description
+      - @user.properties.each do |property|
+        %tr
+          %td= property.name
+          %td= property.description
+          %td= link_to 'Show', property_path(property)
+          %td= link_to 'Edit', edit_property_path(property)
+          %td= link_to 'Delete', [property], method: :delete, data: { confirm: 'Are you sure?' }

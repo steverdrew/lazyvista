@@ -1,7 +1,7 @@
 class PropertiesController < ApplicationController
   
   def index
-    @properties = Property.all
+    @user = current_user
   end
   
   def new
@@ -17,7 +17,8 @@ class PropertiesController < ApplicationController
   end
   
   def create
-    @property = Property.new(property_params)
+    @user = current_user
+    @property = @user.properties.create(property_params)
     if @property.save
       redirect_to @property
     else
@@ -34,6 +35,12 @@ class PropertiesController < ApplicationController
     else
       render 'edit'
     end
+  end
+  
+  def destroy
+    @property = Property.find(params[:id])
+    @property.destroy
+    redirect_to @property
   end
   
   private

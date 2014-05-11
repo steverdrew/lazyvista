@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   get 'home/index'
 
   resources :properties
-  
+      
+  resources :users do 
+    collection do
+      get :properties  # add this line 
+    end 
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
