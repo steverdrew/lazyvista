@@ -16,7 +16,7 @@ Feature: Sign in
       Then I see a successful sign in message
       When I return to the site
       Then I should be signed in
-      And should not see the admin section
+      And I should not see the admin section
 
     Scenario: User enters wrong email
       Given I exist as a user

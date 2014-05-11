@@ -10,7 +10,7 @@ def find_user
 end
 
 def create_unconfirmed_user
-  create_visitor
+create_visitor
   delete_user
   sign_up
   visit '/users/sign_out'
@@ -195,6 +195,14 @@ end
 When /^I sign in as an admin user$/ do
   sign_in_as_admin
 end
+
+When /^I delete my account$/ do
+  visit root_path
+  click_link 'Account'
+  click_button 'Cancel my account'
+  #TODO
+end
+
 
 ### THEN ###
 Then /^I should be signed in$/ do
