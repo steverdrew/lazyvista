@@ -54,3 +54,5 @@ group :test do
   gem 'launchy'
   gem 'poltergeist'
 end
+
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
