@@ -15,16 +15,10 @@
 //= require jquery.cookie
 //= require foundation
 
-
-$(function(){ $(document).foundation(); });
-
 $(window).load(function() { // makes sure the whole site is loaded  
   $("#status").fadeOut(); // will first fade out the loading animation
 	$("#preloader").delay(1000).fadeOut("slow"); // will fade out the white DIV that covers the website.
 })
-
-
-
 
   
 $(document).ready(function() {
@@ -44,9 +38,6 @@ $(document).ready(function() {
     $.cookie("section","#general");
      //TODO SESSION STORAGE
   });
-  
- 
-  
   
   // side menu
   menuId = $.cookie("menuId");
@@ -68,3 +59,5 @@ $(document).ready(function() {
      //TODO SESSION STORAGE
   });
 });
+
+$(function(){ $(document).foundation(); });

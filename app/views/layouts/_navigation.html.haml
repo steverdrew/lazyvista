@@ -10,11 +10,13 @@
     %ul.right
       - if user_signed_in?
         %li.divider
-        %li.top-nav{id: "nav1"}
-          = link_to "Properties", edit_user_registration_path
-        %li.divider
+        %li.top-nav.has-dropdown{id: "nav1"}
+          = link_to "Properties", properties_path
+          %ul.dropdown
+            %li
+              = link_to "Add", new_property_path
         %li.top-nav{id: "nav2"}
-          = link_to "My Bookings", edit_user_registration_path
+          = link_to "Bookings"
         %li.divider
         %li.top-nav{id: "nav3"}
           = link_to "Account", edit_user_registration_path
@@ -28,4 +30,3 @@
           = link_to "Sign up", new_user_registration_path 
         %li.top-nav{id: "nav5"}
           = link_to 'Login',new_user_session_path
-
