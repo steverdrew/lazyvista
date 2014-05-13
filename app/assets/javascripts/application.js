@@ -53,8 +53,7 @@ $(document).ready(function() {
   $(".main-content").children().hide();
   $(e).addClass("active");
   $($.cookie("section")).show();
-  
-    
+      
   $(".menu-nav-tab").click(function() {
     var parts = this.id.split("-");
     $(".main-content").children().hide();
