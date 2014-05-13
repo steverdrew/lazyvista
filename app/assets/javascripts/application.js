@@ -24,23 +24,25 @@ $(window).load(function() { // makes sure the whole site is loaded
 })
 
 
-  nav = $.cookie("mainNavId");
-  e = document.getElementById(nav);
-  $(e).addClass("active");
+
 
   
 $(document).ready(function() {
 
   // top nav
+  id = sessionStorage.getItem('navId');
+  var e = document.getElementById(id);
+  $(e).addClass("active");
   
-  $(".main-nav").click(function() {
-    mainNavId = this.id
-    $.cookie("mainNavId",mainNavId);
-    mainNavId = $.cookie("mainNavId");
-    
+  $(".top-nav").click(function() {
+    sessionStorage.setItem('navId',this.id);
+    id = sessionStorage.getItem('navId');
+     
     //reset account menu to default
+    //TODO SESSION STORAGE
     $.cookie("menuId","general-tab");
     $.cookie("section","#general");
+     //TODO SESSION STORAGE
   });
   
  
@@ -60,7 +62,9 @@ $(document).ready(function() {
     $('.menu-nav-tab').removeClass('active');
     $(this).addClass("active");
     $("#" + parts[0]).show();
+     //TODO SESSION STORAGE
     $.cookie("menuId",this.id);
     $.cookie("section","#" + parts[0]);
+     //TODO SESSION STORAGE
   });
 });
