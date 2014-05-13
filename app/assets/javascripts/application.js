@@ -34,13 +34,13 @@ $(document).ready(function() {
   // top nav
   
   $(".main-nav").click(function() {
-    //$('.main-nav').removeClass('active');
-    //$(this).addClass("active");
     mainNavId = this.id
     $.cookie("mainNavId",mainNavId);
     mainNavId = $.cookie("mainNavId");
-    //alert(1+$.cookie("mainNavId"));
+    
+    //reset account menu to default
     $.cookie("menuId","general-tab");
+    $.cookie("section","#general");
   });
   
  
