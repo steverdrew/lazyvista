@@ -8,24 +8,24 @@
         %span Menu
   %section.top-bar-section
     %ul.right
-      - if user_signed_in? 
-        %li.has-dropdown
-          = link_to "My Properties", properties_path, id: "properties"
-          %ul.dropdown
-            %li
-              = link_to "New", new_property_path, id: "new_property"
-            %li
-              = link_to "Manage", properties_path       
-        %li
+      - if user_signed_in?
+        %li.divider
+        %li.main-nav{id: "properties-nav"}
+          = link_to "Properties", edit_user_registration_path
+        %li.divider
+        %li.main-nav{id: "bookings-nav"}
           = link_to "My Bookings", edit_user_registration_path
-        %li
+        %li.divider
+        %li.main-nav{id: "account-nav"}
           = link_to "Account", edit_user_registration_path
-        %li.active
-          = link_to "Logout", destroy_user_session_path, :method => :delete
+        %li.divider
+       
+        %li.has-form
+          = link_to "Logout", destroy_user_session_path, :method => :delete, class: "button small"
        
       - else 
         %li
           = link_to "Sign up", new_user_registration_path 
-        %li.active
+        %li
           = link_to 'Login',new_user_session_path
 

@@ -23,14 +23,37 @@ $(window).load(function() { // makes sure the whole site is loaded
 	$("#preloader").delay(1000).fadeOut("slow"); // will fade out the white DIV that covers the website.
 })
 
-$(document).ready(function() {
+
+  nav = $.cookie("mainNavId");
+  e = document.getElementById(nav);
+  $(e).addClass("active");
+
   
+$(document).ready(function() {
+
+  // top nav
+  
+  $(".main-nav").click(function() {
+    //$('.main-nav').removeClass('active');
+    //$(this).addClass("active");
+    mainNavId = this.id
+    $.cookie("mainNavId",mainNavId);
+    mainNavId = $.cookie("mainNavId");
+    //alert(1+$.cookie("mainNavId"));
+    $.cookie("menuId","general-tab");
+  });
+  
+ 
+  
+  
+  // side menu
   menuId = $.cookie("menuId");
   var e = document.getElementById(menuId)
   $('.menu-nav-tab').removeClass('active');
   $(".main-content").children().hide();
   $(e).addClass("active");
   $($.cookie("section")).show();
+  
     
   $(".menu-nav-tab").click(function() {
     var parts = this.id.split("-");
