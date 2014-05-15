@@ -9,9 +9,13 @@
         %tr
           %td= property.name
           %td= property.description
-          %td= link_to 'Show', property_path(property)
+          %td= link_to 'Preview', property_path(property)
           %td= link_to 'Edit', edit_property_path(property)
           %td= link_to 'Delete', [property], method: :delete, data: { confirm: 'Are you sure?' }
 .row
   .small-12.large-12.columns    
-    %p= link_to 'You got more? Add another', new_property_path
+    - if @user.properties.empty?
+      %p= link_to 'Get started', new_property_path
+    - else
+      %p= link_to 'Got more? Add another', new_property_path
+      

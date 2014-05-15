@@ -6,6 +6,8 @@ class PropertiesController < ApplicationController
   
   def new
     @property = Property.new
+    @countries = Country.all
+    @regions = Region.all
   end
   
   def show
@@ -43,7 +45,7 @@ class PropertiesController < ApplicationController
   def update_regions
     # updates regions based on country selected
     country = Country.find(params[:country_id])
-    @regions = country.regions.map{|r| [r.name, r.id]}.insert(0, "Select a Region")
+    @regions = country.regions.map{|r| [r.name, r.id, r.lat]}.insert(0, "Select a Region")
   end
   
   def destroy

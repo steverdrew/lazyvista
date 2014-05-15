@@ -41,8 +41,8 @@
         = form_for @property do |f|
           .row
             .large-6.columns
-              = f.label :country
               = f.collection_select(:country_id, @countries, :id, :name, {:prompt   => "Select a Country"})
+            .large-6.columns
               = f.collection_select(:region_id, @regions, :id, :name, {:prompt   => ""})
           = f.submit 'Update', :class => 'button small'
       #media 

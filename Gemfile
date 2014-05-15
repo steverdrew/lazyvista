@@ -17,6 +17,7 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'jquery-cookie-rails'
 gem 'foundation-rails'
+gem 'mapbox-rails'
 
 group :test do
   gem 'cucumber-rails', :require => false
@@ -24,7 +25,6 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'rspec-rails'
-  gem 'launchy'
   gem 'poltergeist'
 end
 

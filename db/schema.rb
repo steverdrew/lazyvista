@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140514175052) do
+ActiveRecord::Schema.define(version: 20140515161440) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -50,6 +50,9 @@ ActiveRecord::Schema.define(version: 20140514175052) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "lat"
+    t.decimal  "lng"
+    t.integer  "zoom"
   end
 
   create_table "properties", force: true do |t|
@@ -81,6 +84,9 @@ ActiveRecord::Schema.define(version: 20140514175052) do
     t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "lat"
+    t.decimal  "lng"
+    t.integer  "zoom"
   end
 
   add_index "regions", ["country_id"], name: "index_regions_on_country_id"

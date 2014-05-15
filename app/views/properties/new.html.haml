@@ -1,13 +1,27 @@
 .row
-  .small-12.large-12.columns
-    %h2= 'Add a property'
+  .small-6.large-6.columns
+    %h3= "Add a property"
+    %h4.subheader= "It won't go live until you push the big red button"
+    %hr
     = form_for @property do |f|
       .row
-        .large-12.columns
-          = f.label :name, :placeholder => "What's it called? Something fancy I hope..."
-          = f.text_field :name, :placeholder => "This is the killer line, make your place sing (but try to keep it short and sweet)"
+        .large-6.columns
+          = f.label :name
+          = f.text_field :name, :placeholder => "Something fancy I hope..."
+        .large-6.columns
+          = f.label :property_type
+          = f.collection_select :property_type_id, PropertyType.order(:name),:id,:name, include_blank: true
       .row
         .large-12.columns
           = f.label :description
-          = f.text_area :description
-      = f.submit 'Add', :class => 'button small'
+          = f.text_area :description, :placeholder => "Make your place sing (but try to keep it short and sweet)"
+          
+      .row
+        .large-6.columns
+          = f.collection_select(:country_id, @countries, :id, :name, {:prompt   => "Select a Country"})
+        .large-6.columns
+          = f.collection_select(:region_id, @regions, :id, :name, {:prompt   => ""})
+              
+      = f.submit 'Save as draft', :class => 'button small'
+  .small-6.large-6.columns    
+    #map

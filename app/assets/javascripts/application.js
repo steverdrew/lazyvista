@@ -21,7 +21,7 @@ $(window).load(function() { // makes sure the whole site is loaded
 })
 
 $(document).ready(function() {
-  
+
   $('#property_country_id').change(function() {
       $.ajax({
         url: "/properties/update_regions",
@@ -56,7 +56,7 @@ $(document).ready(function() {
   $(".main-content").children().hide();
   $(ei).addClass("active");
   $($.cookie("section")).show();
-      
+     
   $(".menu-nav-tab").click(function() {
     var parts = this.id.split("-");
     $(".main-content").children().hide();
@@ -72,6 +72,8 @@ $(document).ready(function() {
     
     
   });
+  var map = L.mapbox.map('map', 'steverdrew.i8d4kj32').setView([54.304602, -2.192544], 9);
+  
 });
 
 
