@@ -22,11 +22,11 @@ $(window).load(function() { // makes sure the whole site is loaded
 
 $(document).ready(function() {
   
-  $('#_country_id').change(function() {
+  $('#property_country_id').change(function() {
       $.ajax({
         url: "/properties/update_regions",
         data: {
-          country_id: $('#_country_id').val()
+          country_id: $('#property_country_id').val()
         },
         dataType: "script"
       });

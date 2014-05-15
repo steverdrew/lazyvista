@@ -33,7 +33,7 @@ class PropertiesController < ApplicationController
     @property = Property.find(params[:id])
  
     if @property.update(property_params)
-      #redirect_to @property
+     # redirect_to @property
       redirect_to action: "index"
     else
       render 'edit'
@@ -44,7 +44,6 @@ class PropertiesController < ApplicationController
     # updates regions based on country selected
     country = Country.find(params[:country_id])
     @regions = country.regions.map{|r| [r.name, r.id]}.insert(0, "Select a Region")
-    #@regions = Country.all
   end
   
   def destroy
@@ -55,6 +54,6 @@ class PropertiesController < ApplicationController
   
   private
     def property_params
-      params.require(:property).permit(:name, :description, :property_type_id, :country_id)
+      params.require(:property).permit(:name, :description, :property_type_id, :country_id, :region_id)
     end
 end

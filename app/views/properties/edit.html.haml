@@ -42,8 +42,8 @@
           .row
             .large-6.columns
               = f.label :country
-              = collection_select(nil, :country_id, @countries, :id, :name, {:prompt   => "Select a Country"})
-              = collection_select(nil, :region_id, @regions, :id, :name, {:prompt   => "Select a Region"})
+              = f.collection_select(:country_id, @countries, :id, :name, {:prompt   => "Select a Country"})
+              = f.collection_select(:region_id, @regions, :id, :name, {:prompt   => ""})
           = f.submit 'Update', :class => 'button small'
       #media 
         %h3.subheader= "Selfies optional"
