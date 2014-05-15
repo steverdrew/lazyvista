@@ -1,4 +1,13 @@
 .row
   .small-12.large-12.columns
     %h2= 'Add a property'
-    = render 'form'
+    = form_for @property do |f|
+      .row
+        .large-12.columns
+          = f.label :name, :placeholder => "What's it called? Something fancy I hope..."
+          = f.text_field :name, :placeholder => "This is the killer line, make your place sing (but try to keep it short and sweet)"
+      .row
+        .large-12.columns
+          = f.label :description
+          = f.text_area :description
+      = f.submit 'Add', :class => 'button small'

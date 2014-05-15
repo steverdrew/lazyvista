@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140511210533) do
+ActiveRecord::Schema.define(version: 20140514175052) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -46,15 +46,44 @@ ActiveRecord::Schema.define(version: 20140511210533) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
+  create_table "countries", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "properties", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "property_type_id"
+    t.integer  "region_id"
+    t.integer  "country_id"
   end
 
+  add_index "properties", ["country_id"], name: "index_properties_on_country_id"
+  add_index "properties", ["property_type_id"], name: "index_properties_on_property_type_id"
+  add_index "properties", ["region_id"], name: "index_properties_on_region_id"
   add_index "properties", ["user_id"], name: "index_properties_on_user_id"
+
+  create_table "property_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "property_types", ["name"], name: "index_property_types_on_name", unique: true
+
+  create_table "regions", force: true do |t|
+    t.string   "name"
+    t.integer  "country_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "regions", ["country_id"], name: "index_regions_on_country_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false

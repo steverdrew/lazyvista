@@ -20,9 +20,19 @@ $(window).load(function() { // makes sure the whole site is loaded
 	$("#preloader").delay(1000).fadeOut("slow"); // will fade out the white DIV that covers the website.
 })
 
-  
 $(document).ready(function() {
-
+  
+  $('#_country_id').change(function() {
+      $.ajax({
+        url: "/properties/update_regions",
+        data: {
+          country_id: $('#_country_id').val()
+        },
+        dataType: "script"
+      });
+    });
+  
+  
   // top nav
   id = sessionStorage.getItem('navId');
   var e = document.getElementById(id);
@@ -41,10 +51,10 @@ $(document).ready(function() {
   
   // side menu
   menuId = $.cookie("menuId");
-  var e = document.getElementById(menuId)
+  var ei = document.getElementById(menuId)
   $('.menu-nav-tab').removeClass('active');
   $(".main-content").children().hide();
-  $(e).addClass("active");
+  $(ei).addClass("active");
   $($.cookie("section")).show();
       
   $(".menu-nav-tab").click(function() {
@@ -57,7 +67,12 @@ $(document).ready(function() {
     $.cookie("menuId",this.id);
     $.cookie("section","#" + parts[0]);
      //TODO SESSION STORAGE
+    
+    
+    
+    
   });
 });
+
 
 $(function(){ $(document).foundation(); });

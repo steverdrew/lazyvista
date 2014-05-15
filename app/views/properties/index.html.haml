@@ -12,3 +12,6 @@
           %td= link_to 'Show', property_path(property)
           %td= link_to 'Edit', edit_property_path(property)
           %td= link_to 'Delete', [property], method: :delete, data: { confirm: 'Are you sure?' }
+.row
+  .small-12.large-12.columns    
+    %p= link_to 'You got more? Add another', new_property_path
