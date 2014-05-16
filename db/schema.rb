@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515161440) do
+ActiveRecord::Schema.define(version: 20140516131243) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -55,6 +55,24 @@ ActiveRecord::Schema.define(version: 20140515161440) do
     t.integer  "zoom"
   end
 
+  create_table "place_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "place_types", ["name"], name: "index_place_types_on_name", unique: true
+
+  create_table "places", force: true do |t|
+    t.string   "name"
+    t.integer  "place_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "region_id"
+  end
+
+  add_index "places", ["region_id"], name: "index_places_on_region_id"
+
   create_table "properties", force: true do |t|
     t.string   "name"
     t.text     "description"
@@ -64,6 +82,9 @@ ActiveRecord::Schema.define(version: 20140515161440) do
     t.integer  "property_type_id"
     t.integer  "region_id"
     t.integer  "country_id"
+    t.integer  "bedrooms"
+    t.integer  "capacity"
+    t.integer  "place_id"
   end
 
   add_index "properties", ["country_id"], name: "index_properties_on_country_id"

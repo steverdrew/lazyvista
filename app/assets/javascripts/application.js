@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.cookie
 //= require foundation
+//= require properties
 
 $(window).load(function() { // makes sure the whole site is loaded  
   $("#status").fadeOut(); // will first fade out the loading animation
@@ -21,16 +22,6 @@ $(window).load(function() { // makes sure the whole site is loaded
 })
 
 $(document).ready(function() {
-
-  $('#property_country_id').change(function() {
-      $.ajax({
-        url: "/properties/update_regions",
-        data: {
-          country_id: $('#property_country_id').val()
-        },
-        dataType: "script"
-      });
-    });
   
   
   // top nav
@@ -67,13 +58,15 @@ $(document).ready(function() {
     $.cookie("menuId",this.id);
     $.cookie("section","#" + parts[0]);
      //TODO SESSION STORAGE
-    
-    
-    
-    
+
   });
-  var map = L.mapbox.map('map', 'steverdrew.i8d4kj32').setView([54.304602, -2.192544], 9);
   
+  // display map if required
+  if (document.getElementById("map")) {
+    var map = L.mapbox.map('map', 'steverdrew.i8d4kj32').setView([54.304602, -2.192544], 9);
+  } 
+   
+
 });
 
 

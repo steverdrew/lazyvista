@@ -1,4 +1,4 @@
-ActiveAdmin.register PropertyType do
+ActiveAdmin.register Place do
 
   
   # See permitted parameters documentation:
