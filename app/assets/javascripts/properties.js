@@ -1,7 +1,19 @@
 
 $(document).ready(function() {
-    
-   $('#property_country_id').change(function() {
+  
+  $('#property_form')
+  .on('invalid', function () {
+    var invalid_fields = $(this).find('[data-invalid]');
+    console.log(invalid_fields);
+  })
+  .on('valid', function () {
+    console.log('valid!');
+  });
+  
+  function resetValues(){   
+  } 
+  
+  $('#property_country_id').change(function() {
     $.ajax({
       url: "/properties/update_regions",
       data: {
@@ -21,6 +33,8 @@ $(document).ready(function() {
     });
   });
   
+  
+    
   
   $('#bedroom-slider').on('change', function(){
     //console.log('Bedrooms');

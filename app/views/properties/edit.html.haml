@@ -20,13 +20,13 @@
   .small-9.large-9.columns
     .main-content
       #general 
-        %h3.subheader= "Give us the lowdown"
+        %h3.subheader= "The lowdown"
         %hr
         = form_for @property do |f|
           .row
             .large-6.columns
               = f.label :name
-              = f.text_field :name, :placeholder => "Something fancy I hope"
+              = f.text_field :name, :placeholder => "Something fancy"
             .large-6.columns
               = f.label :property_type
               = f.collection_select :property_type_id, PropertyType.order(:name),:id,:name, include_blank: true

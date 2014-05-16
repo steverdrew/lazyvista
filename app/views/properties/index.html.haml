@@ -5,18 +5,26 @@
 - else
   .row
     .small-12.large-12.columns
-      %h2= 'Manage my properties'
+      %h3= 'Manage properties'
       %table  
         %tr  
-          %th Name
-          %th Description
         - @user.properties.each do |property|
           %tr
             %td= property.name
-            %td= property.description
             %td= link_to 'Preview', property_path(property)
             %td= link_to 'Edit', edit_property_path(property)
-            %td= link_to 'Delete', [property], method: :delete, data: { confirm: 'Are you sure?' }
+            %td
+              %a{"data-reveal-id" => "deleteModal", href: "#"} Delete
+              #deleteModal.reveal-modal.small.tiny{"data-reveal" => ""}
+                %h2 Delete Property
+                %p.lead Are you sure you wish to delete this property?
+                =link_to 'Delete', [property], method: :delete
+                %a.close-reveal-modal ×
   .row
     .small-12.large-12.columns    
-      %p= link_to 'Got more? Add another', new_property_path
+      %p
+        Got more?
+        =link_to('Add another', new_property_path)
+
+
+  
