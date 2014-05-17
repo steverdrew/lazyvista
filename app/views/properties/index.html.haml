@@ -10,6 +10,7 @@
         %tr  
         - @user.properties.each do |property|
           %tr
+            %td= image_tag property.promo_image.url(:thumb)
             %td= property.name
             %td= link_to 'Preview', property_path(property)
             %td= link_to 'Edit', edit_property_path(property)

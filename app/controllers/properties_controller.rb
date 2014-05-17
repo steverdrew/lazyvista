@@ -65,6 +65,6 @@ class PropertiesController < ApplicationController
   
   private
     def property_params
-      params.require(:property).permit(:name, :description, :property_type_id, :country_id, :region_id, :bedrooms, :capacity)
+      params.require(:property).permit(:name, :description, :property_type_id, :country_id, :region_id, :bedrooms, :capacity, :promo_image)
     end
 end
