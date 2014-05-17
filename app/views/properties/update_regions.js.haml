@@ -1,1 +1,4 @@
 $('#property_region_id').html("#{escape_javascript(options_for_select(@regions))}");
+$('#lat').val('#{escape_javascript(@country_lat)}');
+$('#lng').val('#{escape_javascript(@country_lng)}');
+$('#zoom').val('#{escape_javascript(@country_zoom)}');

@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
   
   $('#property_form')
@@ -10,7 +9,8 @@ $(document).ready(function() {
     console.log('valid!');
   });
   
-  function resetValues(){   
+  function updateMap(){
+    map.setView([$('#lat').val(), $('#lng').val()], 9);
   } 
   
   $('#property_country_id').change(function() {
@@ -19,7 +19,8 @@ $(document).ready(function() {
       data: {
       country_id: $('#property_country_id').val()
       },
-      dataType: "script"
+      dataType: "script",
+      success : updateMap
     });
   });
   
@@ -29,7 +30,8 @@ $(document).ready(function() {
       data: {
       region_id: $('#property_region_id').val()
       },
-      dataType: "script"
+      dataType: "script",
+      success : updateMap
     });
   });
   
@@ -49,5 +51,10 @@ $(document).ready(function() {
     $('#capacity-input').val(v);
     var s = $('#capacity-input').val();
   });
+  
+  // display map if required
+  if (document.getElementById("map")) {
+    var map = L.mapbox.map('map', 'steverdrew.i8d4kj32').setView([$('#lat').val(), $('#lng').val()], $('#zoom').val());
+  } 
   
 });

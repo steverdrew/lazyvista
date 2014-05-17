@@ -52,10 +52,17 @@
           = f.collection_select(:place_id, @places, :id, :name, {:prompt   => ""})    
       .row
         .large-12.columns
-          = f.file_field :promo_image
+          .row
+            .large-3.columns
+              %label= 'Feature image:' 
+            .large-9.columns
+              = f.file_field :promo_image
       .row
         .large-12.columns
           = f.submit 'Save', :class => 'button small', :id => "property_form"
       
-  .small-6.large-6.columns    
+  .small-6.large-6.columns
+    %input{id: "lat", type: "hidden", value: "1"}
+    %input{id: "lng", type: "hidden", value: "1"}
+    %input{id: "zoom", type: "hidden", value: "1"}
     #map

@@ -1,4 +1,4 @@
-ActiveAdmin.register PropertyPhoto do
+ActiveAdmin.register PropertyGallery do
 
   
   # See permitted parameters documentation:

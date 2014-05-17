@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PropertyPhotoTest < ActiveSupport::TestCase
+class PropertyGalleryTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

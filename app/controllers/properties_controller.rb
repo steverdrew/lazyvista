@@ -48,12 +48,18 @@ class PropertiesController < ApplicationController
   def update_regions
     # updates regions based on country selected
     country = Country.find(params[:country_id])
+    @country_lat = country.lat.to_s
+    @country_lng = country.lng.to_s
+    @country_zoom = country.zoom.to_s
     @regions = country.regions.map{|r| [r.name, r.id]}.insert(0, "Select a Region")
   end
   
   def update_places
     # updates regions based on country selected
     region = Region.find(params[:region_id])
+    @region_lat = region.lat.to_s
+    @region_lng = region.lng.to_s
+    @region_zoom = region.zoom.to_s
     @places = region.places.map{|p| [p.name, p.id]}.insert(0, "Select a Place")
   end
   
@@ -61,6 +67,11 @@ class PropertiesController < ApplicationController
     @property = Property.find(params[:id])
     @property.destroy
     redirect_to @property
+  end
+  
+  def get_country
+    country = Country.find(params[:country_id])
+    @country = country.map{|p| [p.name, p.id, p.lng, p.lat]}
   end
   
   private

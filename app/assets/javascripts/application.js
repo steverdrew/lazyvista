@@ -62,10 +62,6 @@ $(document).ready(function() {
 
   });
   
-  // display map if required
-  if (document.getElementById("map")) {
-    var map = L.mapbox.map('map', 'steverdrew.i8d4kj32').setView([54.304602, -2.192544], 9);
-  } 
    
 
 });
