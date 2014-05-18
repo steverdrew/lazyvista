@@ -4,8 +4,30 @@
       .small-12.large-12.columns
         %h3= "Add a property"
         %h4.subheader= "It won't go live just yet"   
-      = render 'new_form'
-  
+        = form_for @property, :html => {:data => {:abide => ''}} do |f|
+          .row
+            %hr    
+            %input{id: "zoom", type: "hidden", value: "1"}
+          = render "general", :f=> f
+          = render "geo", :f=> f
+          .row
+            .large-12.columns
+              .row
+                .large-4.columns
+                  %label= 'Choose a feature image:' 
+                .large-8.columns
+                  = f.file_field :promo_image
+          .row
+            .large-12.columns
+              %hr
+          .row
+            .large-4.columns
+              = f.submit 'Save and continue', :class => 'button small', :id => "property_form", :value => "Save and continue", :name => "commit"
+            .large-4.columns
+              = f.submit 'Save for later', :class => 'button small secondary', :id => "property_form", :value => "Save for later", :name => "commit"
+            .large-4.columns
+              = link_to "Cancel", root_path, :class => 'button small alert right', :id => 'cancel'
+
   
   .small-6.large-6.columns
     #map
