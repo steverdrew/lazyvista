@@ -1,0 +1,35 @@
+.row
+  .large-6.columns
+    = f.label :name
+    = f.text_field :name, :required => ''
+    %small.error Name is required
+  .large-6.columns
+    = f.label :property_type
+    = f.collection_select :property_type_id, PropertyType.order(:name),:id,:name, include_blank: true
+.row
+  .large-6.columns
+    .row
+      .large-4.columns
+        %span{style: "display: block;margin-top: 17px;"} Bedrooms:
+      .large-2.columns
+        %span#sliderOutput1{style: "display: block;margin-top: 17px;"}
+      .large-6.columns
+        .range-slider.round{"data-options" => "display_selector:#sliderOutput1; start: 1; end: 10;", "data-slider" => "", id: "bedroom-slider"}
+          %span.range-slider-handle
+          %span.range-slider-active-segment
+          = f.hidden_field :bedrooms, :id => "bedrooms-input"
+  .large-6.columns
+    .row
+      .large-4.columns
+        %span{style: "display: block;margin-top: 17px;"} Sleeps:
+      .large-2.columns
+        %span#sliderOutput2{style: "display: block;margin-top: 17px;"}
+      .large-6.columns
+        .range-slider.round{"data-options" => "display_selector:#sliderOutput2; start: 1; end: 20;", "data-slider" => "", id: "capacity-slider"}
+          %span.range-slider-handle
+          %span.range-slider-active-segment
+          = f.hidden_field :capacity, :id => "capacity-input"
+.row
+  .large-12.columns
+    = f.label :description
+    = f.text_area :description       

@@ -1,1 +1,13 @@
-= render 'form'
+.row
+  .small-6.large-6.columns
+    .row
+      .small-12.large-12.columns
+        %h3= "Add a property"
+        %h4.subheader= "It won't go live just yet"   
+      = render 'form'
+  
+  
+  .small-6.large-6.columns
+    #map
+
+= render 'layouts/unsaved'

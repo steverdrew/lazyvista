@@ -24,18 +24,27 @@ class PropertiesController < ApplicationController
     @user = current_user
     @property = @user.properties.create(property_params)
     if @property.save
-      redirect_to action: "index"
+      if @property.update(property_params)
+        if params[:commit] == 'Save and continue'
+          redirect_to edit_property_path(@property)
+          #flash[:notice] = "Your property has been saved for later"
+        elsif params[:commit] == 'Save for later'
+          redirect_to action: "index"
+          #flash[:notice] = "Property saved"
+        end
+    end
+
     else
       render 'new'
     end
 
+    
   end
   
   def update
     @property = Property.find(params[:id])
  
     if @property.update(property_params)
-     # redirect_to @property
       redirect_to action: "index"
     else
       render 'edit'

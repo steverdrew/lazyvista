@@ -1,5 +1,18 @@
 $(document).ready(function() {
   
+  //=============================================================
+  // Form State
+  //=============================================================
+  
+  $('#property_name').change(function() {
+    console.log('test1');
+    $("#cancel").attr("data-reveal-id","unsaved-modal");
+  });
+  
+  //=============================================================
+  //Check form for errors
+  //=============================================================
+  
   $('#property_form')
   .on('invalid', function () {
     var invalid_fields = $(this).find('[data-invalid]');
@@ -9,10 +22,12 @@ $(document).ready(function() {
     console.log('valid!');
   });
   
+  //=============================================================
+  // Map functions
+  //=============================================================
+  
   function updateMap(){
-    console.log('1');
     map.setView([$('#lat').val(), $('#lng').val()], $('#zoom').val());
-    console.log('2');
   } 
   
   function createMarker(){
@@ -28,9 +43,12 @@ $(document).ready(function() {
                 draggable: true
             });
 
-      marker.bindPopup('This marker is draggable! Move it around.');
       marker.addTo(map);
   } 
+  
+  //=============================================================
+  // Geo Dropdowns
+  //=============================================================
   
   $('#property_country_id').change(function() {
     $.ajax({
@@ -66,7 +84,9 @@ $(document).ready(function() {
     });
   });
   
-    
+  //=============================================================
+  // Sliders
+  //=============================================================
   
   $('#bedroom-slider').on('change', function(){
     //console.log('Bedrooms');
@@ -81,13 +101,5 @@ $(document).ready(function() {
     $('#capacity-input').val(v);
     var s = $('#capacity-input').val();
   });
-  
-  // display map if required
-  if (document.getElementById("map")) {
-    console.log('1');
-    var map = L.mapbox.map('map', 'steverdrew.i8d4kj32').setView([$('#lat').val(), $('#lng').val()], $('#zoom').val());
-    console.log('2');
-    
-  } 
   
 });

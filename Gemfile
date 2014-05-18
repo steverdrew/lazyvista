@@ -18,7 +18,7 @@ gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'jquery-cookie-rails'
 gem 'foundation-rails'
 gem 'mapbox-rails'
-gem 'jquery.fileupload-rails'
+gem "font-awesome-rails"
 
 group :test do
   gem 'cucumber-rails', :require => false

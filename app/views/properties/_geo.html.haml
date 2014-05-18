@@ -1,0 +1,10 @@
+= f.hidden_field :lat, :id => "lat", :value => "1"
+= f.hidden_field :lng, :id => "lng", :value => "1"
+      
+.row
+  .large-4.columns
+    = f.collection_select(:country_id, @countries, :id, :name, {:prompt   => "Select a Country"})
+  .large-4.columns
+    = f.select :region_id, ''
+  .large-4.columns
+    = f.select :place_id, ''
