@@ -49,11 +49,15 @@ $(document).ready(function() {
   $($.cookie("section")).show();
      
   $(".menu-nav-tab").click(function() {
+    console.log('1');
     var parts = this.id.split("-");
     $(".main-content").children().hide();
     $('.menu-nav-tab').removeClass('active');
     $(this).addClass("active");
+    console.log(parts[0]);
     $("#" + parts[0]).show();
+    
+    
      //TODO SESSION STORAGE
     $.cookie("menuId",this.id);
     $.cookie("section","#" + parts[0]);

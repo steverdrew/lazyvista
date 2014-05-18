@@ -1,33 +1,26 @@
 #preloader
   #status  
-%br/
 .row
-.small-12.large-12.columns
-.row  
-  .small-3.large-3.columns
-    %ul.side-nav.menu-nav
-      %li.menu-nav-tab.active{id: "general-tab"}
-        %a{href: "#"} Headline
-      %li.menu-nav-tab{id: "location-tab"}
-        %a{href: "#"} Location
-      %li.menu-nav-tab{id: "media-tab"}
-        %a{href: "#"} Photos and Video
-      %li.menu-nav-tab{id: "descriptions-tab"}
-        %a{href: "#"} Descriptions
-      %li.menu-nav-tab{id: "statistics-tab"}
-        %a{href: "#"} Statistics
-        
-  .small-9.large-9.columns
-    .main-content
-      #general 
-        %h3.subheader= "General stuff"
-        %hr
-        = render 'general'
-      #gallery 
-        %h3.subheader= "Selfies optional"
-        %hr
-      #descriptions 
-        %h3.subheader= "In your own words. Tell us how it is."
-      #statistics 
-        %h3.subheader= "Monitor how you're doing"
+  .small-12.large-12.columns
+    .row  
+      .small-3.large-3.columns
+        %ul.side-nav.menu-nav
+          %li.menu-nav-tab.active{id: "general-tab"}
+            %a{href: "#"} Headline
+          %li.menu-nav-tab{id: "location-tab"}
+            %a{href: "#"} Location
+          %li.menu-nav-tab{id: "media-tab"}
+            %a{href: "#"} Photos and Video
+          %li.menu-nav-tab{id: "descriptions-tab"}
+            %a{href: "#"} Descriptions
+          %li.menu-nav-tab{id: "statistics-tab"}
+            %a{href: "#"} Statistics  
+      .small-9.large-9.columns
+        = form_for @property, :html => {:data => {:abide => ''}} do |f|
+          .main-content
+            #general 
+              .small-9.large-9.columns
+                %h3.subheader= "General stuff"
+                %hr
+                = render "general", :f=> f
           
