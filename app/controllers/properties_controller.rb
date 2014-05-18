@@ -18,9 +18,6 @@ class PropertiesController < ApplicationController
   def edit
     @property = Property.find(params[:id])
     @countries = Country.all
-    @regions = Region.all
-    @places = Place.all
-    
   end
   
   def create
@@ -55,13 +52,22 @@ class PropertiesController < ApplicationController
   end
   
   def update_places
-    # updates regions based on country selected
+    # updates places based on region selected
     region = Region.find(params[:region_id])
     @region_lat = region.lat.to_s
     @region_lng = region.lng.to_s
     @region_zoom = region.zoom.to_s
     @places = region.places.map{|p| [p.name, p.id]}.insert(0, "Select a Place")
   end
+  
+  def update_map
+    # get geo for place
+    place = Place.find(params[:place_id])
+    @place_lat = place.lat.to_s
+    @place_lng = place.lng.to_s
+    @place_zoom = place.zoom.to_s
+  end
+  
   
   def destroy
     @property = Property.find(params[:id])
@@ -76,6 +82,8 @@ class PropertiesController < ApplicationController
   
   private
     def property_params
-      params.require(:property).permit(:name, :description, :property_type_id, :country_id, :region_id, :bedrooms, :capacity, :promo_image)
+      params.require(:property).permit(:name, :description, :property_type_id, 
+        :country_id, :region_id, :place_id, :bedrooms, :capacity, :promo_image,
+        :lat, :lng)
     end
 end

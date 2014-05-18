@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'properties/update_regions', :as => 'update_regions'
   get 'properties/update_places', :as => 'update_places'
+  get 'properties/update_map', :as => 'update_map'
 
   resources :properties
       

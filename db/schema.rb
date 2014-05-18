@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140517073511) do
+ActiveRecord::Schema.define(version: 20140518060956) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -69,6 +69,9 @@ ActiveRecord::Schema.define(version: 20140517073511) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "region_id"
+    t.decimal  "lat"
+    t.decimal  "lng"
+    t.integer  "zoom"
   end
 
   add_index "places", ["region_id"], name: "index_places_on_region_id"
@@ -89,6 +92,8 @@ ActiveRecord::Schema.define(version: 20140517073511) do
     t.string   "promo_image_content_type"
     t.integer  "promo_image_file_size"
     t.datetime "promo_image_updated_at"
+    t.decimal  "lat"
+    t.decimal  "lng"
   end
 
   add_index "properties", ["country_id"], name: "index_properties_on_country_id"
