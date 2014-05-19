@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140519084835) do
+ActiveRecord::Schema.define(version: 20140519131458) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20140519084835) do
     t.decimal  "lat"
     t.decimal  "lng"
     t.integer  "zoom"
+    t.boolean  "inactive"
   end
 
   create_table "place_types", force: true do |t|
@@ -72,6 +73,7 @@ ActiveRecord::Schema.define(version: 20140519084835) do
     t.decimal  "lat"
     t.decimal  "lng"
     t.integer  "zoom"
+    t.boolean  "inactive"
   end
 
   add_index "places", ["region_id"], name: "index_places_on_region_id"
@@ -149,6 +151,7 @@ ActiveRecord::Schema.define(version: 20140519084835) do
     t.decimal  "lat"
     t.decimal  "lng"
     t.integer  "zoom"
+    t.boolean  "inactive"
   end
 
   add_index "regions", ["country_id"], name: "index_regions_on_country_id"

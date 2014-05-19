@@ -6,18 +6,24 @@
     .small-12.large-12.columns
       .row  
         .small-2.large-2.columns
+          = image_tag @property.promo_image.url(:thumb)
           %ul.side-nav.menu-nav
-            = image_tag @property.promo_image.url(:thumb)
             %li.menu-nav-tab.active{id: "general-tab"}
               %a{href: "#"} Headline
             %li.menu-nav-tab{id: "location-tab"}
               %a{href: "#"} Location
+            %li.divider
             %li.menu-nav-tab{id: "gallery-tab"}
               %a{href: "#"} Gallery
             %li.menu-nav-tab{id: "descriptions-tab"}
               %a{href: "#"} Descriptions
-            %li.menu-nav-tab{id: "statistics-tab"}
-              %a{href: "#"} Features  
+            %li.menu-nav-tab{id: "features-tab"}
+              %a{href: "#"} Features
+            %li.divider
+            %li.menu-nav-tab{id: "prices-tab"}
+              %a{href: "#"} Prices
+            %li.menu-nav-tab{id: "availabilty-tab"}
+              %a{href: "#"} Availabilty  
         .small-6.large-6.columns
           .row
             .large-12.columns
@@ -31,6 +37,10 @@
                       #edit-property-map
                 #gallery
                   = render "gallery", :f=> f
+                #descriptions
+                  = render "gallery", :f=> f  
+                #features
+                  = render "features", :f=> f             
           .row
             %br/
             .large-6.columns

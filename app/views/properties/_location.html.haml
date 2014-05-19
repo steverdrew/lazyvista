@@ -4,7 +4,13 @@
 .row
   .large-4.columns
     = f.collection_select(:country_id, @countries, :id, :name, {:prompt   => "Select a Country"})
-  .large-4.columns
-    = f.select :region_id, ''
-  .large-4.columns
-    = f.select :place_id, ''
+  - if request.path != '/properties/new'
+    .large-4.columns
+      = f.collection_select(:region_id, @regions, :id, :name)
+    .large-4.columns
+      = f.collection_select(:place_id, @places, :id, :name)
+  -else
+    .large-4.columns
+      = f.select :region_id, ''
+    .large-4.columns
+      = f.select :place_id, ''

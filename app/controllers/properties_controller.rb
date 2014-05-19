@@ -6,9 +6,9 @@ class PropertiesController < ApplicationController
   
   def new
     @property = Property.new
-    @countries = Country.all
-    @regions = Region.all
-    @places = Place.all
+    @countries = Country.where(inactive: false)
+    #@regions = Region.where(inactive: false)
+    #@places = Place.where(inactive: false)
   end
   
   def show
@@ -17,7 +17,9 @@ class PropertiesController < ApplicationController
   
   def edit
     @property = Property.find(params[:id])
-    @countries = Country.all
+    @countries = Country.where(inactive: false)
+    @regions = Region.where(inactive: false)
+    @places = Place.where(inactive: false)
   end
   
   def create
@@ -53,20 +55,30 @@ class PropertiesController < ApplicationController
  
   def update_regions
     # updates regions based on country selected
-    country = Country.find(params[:country_id])
-    @country_lat = country.lat.to_s
-    @country_lng = country.lng.to_s
-    @country_zoom = country.zoom.to_s
-    @regions = country.regions.map{|r| [r.name, r.id]}.insert(0, "Select a Region")
+    #logger.info(">>>>>>>>>"+Country.find(params[:country_id]).to_s)
+    if params[:country_id].present?
+      country = Country.find(params[:country_id])
+      @country_lat = country.lat.to_s
+      @country_lng = country.lng.to_s
+      @country_zoom = country.zoom.to_s
+      @regions = country.regions.reject { |r| r.inactive == true }.map { |r| [r.name, r.id] }.insert(0, "Select a Region")
+    else
+      @regions = Hash['',''] 
+    end 
   end
   
   def update_places
     # updates places based on region selected
-    region = Region.find(params[:region_id])
-    @region_lat = region.lat.to_s
-    @region_lng = region.lng.to_s
-    @region_zoom = region.zoom.to_s
-    @places = region.places.map{|p| [p.name, p.id]}.insert(0, "Select a Place")
+    if params[:region_id].present?
+      region = Region.find(params[:region_id])
+      @region_lat = region.lat.to_s
+      @region_lng = region.lng.to_s
+      @region_zoom = region.zoom.to_s
+      @places = region.places.reject { |p| p.inactive == true }.map { |p| [p.name, p.id] }.insert(0, "Select a Place")
+      #@places = region.places.map{|p| [p.name, p.id]}.insert(0, "Select a Place")
+    else
+      @places = Hash['',''] 
+    end
   end
   
   def update_map

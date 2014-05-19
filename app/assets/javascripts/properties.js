@@ -27,7 +27,12 @@ $(document).ready(function() {
   //=============================================================
   
   function updateMap(){
-    map.setView([$('#lat').val(), $('#lng').val()], $('#zoom').val());
+    var v = $('#lat').val()
+    if(v){
+      console.log (v);
+      map.setView([$('#lat').val(), $('#lng').val()], $('#zoom').val());
+    }
+
   } 
   
   function createMarker(){
@@ -88,15 +93,17 @@ $(document).ready(function() {
   // Sliders
   //=============================================================
   
+  //Update intitial values
+  $('#bedroom-slider').attr('data-slider',$('#bedroom-input').val());  
+  $('#capacity-slider').attr('data-slider',$('#capacity-input').val()); 
+  
   $('#bedroom-slider').on('change', function(){
-    //console.log('Bedrooms');
     var v = $('#bedroom-slider').attr('data-slider');
-    $('#bedrooms-input').val(v);
-    var s = $('#bedrooms-input').val();
+    $('#bedroom-input').val(v);
+    var s = $('#bedroom-input').val();
   });
   
   $('#capacity-slider').on('change', function(){
-    //console.log('Bedrooms');
     var v = $('#capacity-slider').attr('data-slider');
     $('#capacity-input').val(v);
     var s = $('#capacity-input').val();
