@@ -7,16 +7,8 @@
         = form_for @property, :html => {:data => {:abide => ''}} do |f|
           .row
             %hr    
-            %input{id: "zoom", type: "hidden", value: "1"}
           = render "general", :f=> f
-          = render "geo", :f=> f
-          .row
-            .large-12.columns
-              .row
-                .large-4.columns
-                  %label= 'Choose a feature image:' 
-                .large-8.columns
-                  = f.file_field :promo_image
+          = render "location", :f=> f
           .row
             .large-12.columns
               %hr
@@ -30,6 +22,6 @@
 
   
   .small-6.large-6.columns
-    #map
+    #new-property-map
 
 = render 'layouts/unsaved'

@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.cookie
+//= require jquery.fileupload
 //= require foundation
 //= require properties
 
@@ -64,13 +65,7 @@ $(document).ready(function() {
      //TODO SESSION STORAGE
 
   });
-  
-  
-  // display map if required
-  if (document.getElementById("map")) {
-    var map = L.mapbox.map('map', 'steverdrew.i8d4kj32').setView([$('#lat').val(), $('#lng').val()], $('#zoom').val());
-  }
-  
+   
 });
 
 

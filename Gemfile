@@ -19,6 +19,7 @@ gem 'jquery-cookie-rails'
 gem 'foundation-rails'
 gem 'mapbox-rails'
 gem "font-awesome-rails"
+gem 'jquery.fileupload-rails'
 
 group :test do
   gem 'cucumber-rails', :require => false

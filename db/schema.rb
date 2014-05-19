@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140518060956) do
+ActiveRecord::Schema.define(version: 20140519084835) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -100,6 +100,15 @@ ActiveRecord::Schema.define(version: 20140518060956) do
   add_index "properties", ["property_type_id"], name: "index_properties_on_property_type_id"
   add_index "properties", ["region_id"], name: "index_properties_on_region_id"
   add_index "properties", ["user_id"], name: "index_properties_on_user_id"
+
+  create_table "property_assets", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "asset_file_name"
+    t.string   "asset_content_type"
+    t.integer  "asset_file_size"
+    t.datetime "asset_updated_at"
+  end
 
   create_table "property_galleries", force: true do |t|
     t.integer  "property_id"

@@ -7,6 +7,16 @@
     = f.label :property_type
     = f.collection_select :property_type_id, PropertyType.order(:name),:id,:name, include_blank: true
 .row
+  .large-12.columns
+    .row
+      .large-6.columns
+        .panel.callout.radius
+          %label= 'Choose a feature image:' 
+          %br/
+          = f.file_field :promo_image
+      .large-6.columns
+        &nbsp
+.row
   .large-6.columns
     .row
       .large-4.columns

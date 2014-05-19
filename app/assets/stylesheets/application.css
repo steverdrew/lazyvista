@@ -39,4 +39,14 @@
 }
 
  
-#map { position:fixed; top:80px; bottom:90px; width:600px; }
+#new-property-map { position:fixed; top:80px; bottom:90px; width:50%; }
+
+#edit-property-map {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 300px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: 1px solid #bbb;
+  }

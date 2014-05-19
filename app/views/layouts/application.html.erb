@@ -6,7 +6,6 @@
     
     <title><%= content_for?(:title) ? yield(:title) : "lazyvista" %></title>
 
-    <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' rel='stylesheet' />
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -18,5 +17,6 @@
     <%= render 'layouts/messages' %>   
     <%= yield %>
     <%= javascript_include_tag "application" %>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js'></script>
   </body>
 </html>
