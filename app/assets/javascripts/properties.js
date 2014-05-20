@@ -26,11 +26,10 @@ $(document).ready(function() {
   //=============================================================
   
   function updateMap(){
-    var v = $('#lat').val()
+    var v = $('#lat').val();
     if(v){
       map.setView([$('#lat').val(), $('#lng').val()], $('#zoom').val());
     }
-
   } 
   
   function createMarker(){
@@ -46,13 +45,16 @@ $(document).ready(function() {
             });
 
       marker.addTo(map);
+      
+    // track where the marker is dragged to
+      marker.on('dragend', function(e){
+        $('#lat').val(e.target._latlng.lat);
+        $('#lng').val(e.target._latlng.lng);       
+      });
+    
   } 
   
-  $('#image_upload').change(function() {
-    console.log($('#property_country_id'));
-  });
-  
-  
+    
   //=============================================================
   // Geo Dropdowns
   //=============================================================
@@ -122,9 +124,13 @@ $(document).ready(function() {
 
   // Edit Property
   if (document.getElementById("edit-property-map")) {
-    var map = L.mapbox.map('edit-property-map', 'steverdrew.i8d4kj32').setView([$('#lat').val(), $('#lng').val()], $('#zoom').val());
+    var map = L.mapbox.map('edit-property-map', 'steverdrew.i8d4kj32').setView([$('#lat').val(), $('#lng').val()],         $('#zoom').val());
+    createMarker();
   }
   
+  
+  
 });
+
 
 

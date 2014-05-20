@@ -1,15 +1,19 @@
-= f.hidden_field :lat, :id => "lat", :value => "1"
-= f.hidden_field :lng, :id => "lng", :value => "1"
-%input{id: "zoom", type: "hidden", value: "1"}      
+
+
 .row
-  .large-4.columns
-    = f.collection_select(:country_id, @countries, :id, :name, {:prompt   => "Select a Country"})
   - if request.path != '/properties/new'
+    = f.hidden_field :lat, :id => "lat", :value => @lat
+    = f.hidden_field :lng, :id => "lng", :value => @lng
+    %input{id: "zoom", type: "hidden", value: "15"}
+    %p
+      Drag the marker to update the postion or &nbsp;
+      = link_to 'Start over'
+  - else
+    = f.hidden_field :lat, :id => "lat", :value => "1"
+    = f.hidden_field :lng, :id => "lng", :value => "1"
+    %input{id: "zoom", type: "hidden", value: "1"}
     .large-4.columns
-      = f.collection_select(:region_id, @regions, :id, :name)
-    .large-4.columns
-      = f.collection_select(:place_id, @places, :id, :name)
-  -else
+      = f.collection_select(:country_id, @countries, :id, :name, {:prompt   => "Select a Country"})
     .large-4.columns
       = f.select :region_id, ''
     .large-4.columns

@@ -7,8 +7,8 @@ class PropertiesController < ApplicationController
   def new
     @property = Property.new
     @countries = Country.where(inactive: false)
-    #@regions = Region.where(inactive: false)
-    #@places = Place.where(inactive: false)
+    @regions = Region.where(inactive: false)
+    @places = Place.where(inactive: false)
   end
   
   def show
@@ -16,10 +16,28 @@ class PropertiesController < ApplicationController
   end
   
   def edit
-    @property = Property.find(params[:id])
-    @countries = Country.where(inactive: false)
-    @regions = Region.where(inactive: false)
-    @places = Place.where(inactive: false)
+    property = Property.find(params[:id])
+    @property = property
+    @lat = property.lat.to_s
+    @lng = property.lng.to_s
+    
+    if property.country_id.present? && property.country_id > 0 
+      country = Country.find(property.country_id)
+      @country_name = country.name.to_s
+    end
+    
+    if property.region_id.present? && property.region_id > 0 
+      region = Region.find(property.region_id)
+      @region_name = region.name.to_s
+    end
+    
+    if property.place_id.present? && property.place_id > 0 
+      place = Place.find(property.place_id)
+      @place_name = place.name.to_s
+    end
+    
+    
+
   end
   
   def create
@@ -107,4 +125,5 @@ class PropertiesController < ApplicationController
         :country_id, :region_id, :place_id, :bedrooms, :capacity, :promo_image, :promo_video,
         :lat, :lng)
     end
+  
 end
