@@ -39,7 +39,15 @@
 }
 
  
-#new-property-map { position:fixed; top:80px; bottom:90px; width:50%; }
+#new-property-map {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 400px;
+    margin-top: 125px;
+    margin-right: 10px;
+    border: 1px solid #bbb;
+  }
 
 #edit-property-map {
     position: relative;

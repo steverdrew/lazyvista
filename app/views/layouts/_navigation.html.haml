@@ -2,7 +2,7 @@
   %ul.title-area
     %li.name
       %h1
-        = link_to 'Home', root_path
+        = link_to 'home', root_path
     %li.toggle-topbar.menu-icon
       %a{:href => '#'} 
         %span Menu
@@ -13,23 +13,29 @@
         %li.top-nav.has-dropdown{id: "nav1"}
           = link_to properties_path do
             %i.fa.fa-home
-            Properties
+            &nbsp; Properties
           %ul.dropdown
             %li
-              = link_to "Add", new_property_path
+              = link_to new_property_path do
+                %i.fa.fa-plus
+                &nbsp; Add
             %li
-              = link_to "Stats", new_property_path
+              = link_to new_property_path do
+                %i.fa.fa-bar-chart-o
+                &nbsp; Stats
         %li.top-nav{id: "nav2"}
-          = link_to "Bookings"
+          = link_to new_property_path do
+            %i.fa.fa-calendar
+            &nbsp; Bookings
         %li.divider
         %li.top-nav{id: "nav4"}
           = link_to edit_user_registration_path do
             %i.fa.fa-search
-            Search 
+            &nbsp; Search 
         %li.divider
         %li.top-nav{id: "nav3"}
           = link_to edit_user_registration_path do
-            %i.fa.fa-cogs
+            %i.fa.fa-cog
         %li.divider
         %li
           = link_to destroy_user_session_path, :method => :delete do

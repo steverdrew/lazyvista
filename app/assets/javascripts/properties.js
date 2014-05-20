@@ -5,7 +5,6 @@ $(document).ready(function() {
   //=============================================================
   
   $('#property_name').change(function() {
-    console.log('test1');
     $("#cancel").attr("data-reveal-id","unsaved-modal");
   });
   
@@ -29,7 +28,6 @@ $(document).ready(function() {
   function updateMap(){
     var v = $('#lat').val()
     if(v){
-      console.log (v);
       map.setView([$('#lat').val(), $('#lng').val()], $('#zoom').val());
     }
 
@@ -42,7 +40,6 @@ $(document).ready(function() {
   
     
   function setMarker(){
-    console.log('!!!');
     var marker = L.marker(new L.LatLng($('#lat').val(),$('#lng').val()), {
                 icon: L.mapbox.marker.icon({'marker-color': 'CC0033'}),
                 draggable: true

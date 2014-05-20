@@ -11,11 +11,18 @@
     .row
       .large-6.columns
         .panel.callout.radius
-          %label= 'Choose a feature image:' 
+          %label
+            %i.fa.fa-photo
+            Feature image
           %br/
           = f.file_field :promo_image
       .large-6.columns
-        &nbsp
+        .panel.callout.radius
+          %label
+            %i.fa.fa-video-camera
+            Feature video
+          %br/
+          = f.file_field :promo_video
 .row
   .large-6.columns
     .row
@@ -27,7 +34,7 @@
         .range-slider.round{"data-options" => "display_selector:#sliderOutput1; start: 1; end: 10;", "data-slider" => "", id: "bedroom-slider"}
           %span.range-slider-handle
           %span.range-slider-active-segment
-          = f.hidden_field :bedrooms, :id => "bedroom-input"
+          = f.hidden_field :bedrooms, :id => "bedroom-input", :value => 1
   .large-6.columns
     .row
       .large-4.columns
@@ -38,7 +45,7 @@
         .range-slider.round{"data-options" => "display_selector:#sliderOutput2; start: 1; end: 20;", "data-slider" => "", id: "capacity-slider"}
           %span.range-slider-handle
           %span.range-slider-active-segment
-          = f.hidden_field :capacity, :id => "capacity-input"
+          = f.hidden_field :capacity, :id => "capacity-input", :value => 1
 .row
   .large-12.columns
     = f.label :description
