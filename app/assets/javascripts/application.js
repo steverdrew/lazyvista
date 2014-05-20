@@ -70,3 +70,11 @@ $(document).ready(function() {
 
 
 $(function(){ $(document).foundation(); });
+
+$(document)
+    .foundation().foundation('abide', {
+        patterns: {
+        // check if the last 3 letters are acceptable
+        image_file: /\.(jpeg|JPEG|jpg|JPG)$/
+    }
+});

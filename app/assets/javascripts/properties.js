@@ -48,6 +48,11 @@ $(document).ready(function() {
       marker.addTo(map);
   } 
   
+  $('#image_upload').change(function() {
+    console.log($('#property_country_id'));
+  });
+  
+  
   //=============================================================
   // Geo Dropdowns
   //=============================================================
@@ -91,19 +96,19 @@ $(document).ready(function() {
   //=============================================================
   
   //Update intitial values
-  $('#bedroom-slider').attr('data-slider',$('#bedroom-input').val());  
+  $('#bedroom-slider').attr('data-slider',$('#bedroom-input').val());
   $('#capacity-slider').attr('data-slider',$('#capacity-input').val()); 
   
-  $('#bedroom-slider').on('change', function(){
+  $('#bedroom-slider').on('click', function(){
     var v = $('#bedroom-slider').attr('data-slider');
     $('#bedroom-input').val(v);
-    var s = $('#bedroom-input').val();
+    console.log( $('#bedroom-input').val());
   });
   
-  $('#capacity-slider').on('change', function(){
+  $('#capacity-slider').on('click', function(){
     var v = $('#capacity-slider').attr('data-slider');
     $('#capacity-input').val(v);
-    var s = $('#capacity-input').val();
+    console.log( $('#capacity-input').val());
   });
   
   //=============================================================
