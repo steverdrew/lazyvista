@@ -25,35 +25,43 @@ $(document).ready(function() {
   // Map functions
   //=============================================================
   
-  function updateMap(){
+  function updateMap()
+  {
     var v = $('#lat').val();
     if(v){
       map.setView([$('#lat').val(), $('#lng').val()], $('#zoom').val());
     }
+    
+ 
+    
   } 
   
-  function createMarker(){
+  function createMarker()
+  {
     updateMap();
     setMarker();
   } 
   
     
-  function setMarker(){
+  function setMarker()
+  {
     var marker = L.marker(new L.LatLng($('#lat').val(),$('#lng').val()), {
-                icon: L.mapbox.marker.icon({'marker-color': 'CC0033'}),
-                draggable: true
+                icon: L.mapbox.marker.icon({'marker-size': 'large','marker-color': 'CC0033'}),
+      draggable: true
             });
-
+      
+      marker.bindPopup('This marker is draggable! Move it around.');
       marker.addTo(map);
       
+    
+    
     // track where the marker is dragged to
       marker.on('dragend', function(e){
         $('#lat').val(e.target._latlng.lat);
         $('#lng').val(e.target._latlng.lng);       
       });
-    
-  } 
-  
+      
+  }
     
   //=============================================================
   // Geo Dropdowns

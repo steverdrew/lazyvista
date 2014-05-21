@@ -5,8 +5,10 @@
     %small.error Name is required
   .large-6.columns
     = f.label :property_type
-    = f.collection_select :property_type_id, PropertyType.order(:name),:id,:name, include_blank: true
-.row
+    = f.collection_select :property_type_id, PropertyType.order(:name),:id,:name, {:include_blank => ''}, {:required => ''}
+    %small.error Property type is required
+-#
+  .row
   .large-12.columns
     .row
       .large-6.columns
@@ -53,4 +55,4 @@
 .row
   .large-12.columns
     = f.label :description
-    = f.text_area :description       
+    = f.text_area :description, {:rows => '10'}       
