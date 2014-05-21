@@ -30,10 +30,7 @@ $(document).ready(function() {
     var v = $('#lat').val();
     if(v){
       map.setView([$('#lat').val(), $('#lng').val()], $('#zoom').val());
-    }
-    
- 
-    
+    }   
   } 
   
   function createMarker()
@@ -52,9 +49,7 @@ $(document).ready(function() {
       
       marker.bindPopup('This marker is draggable! Move it around.');
       marker.addTo(map);
-      
-    
-    
+     
     // track where the marker is dragged to
       marker.on('dragend', function(e){
         $('#lat').val(e.target._latlng.lat);
@@ -109,16 +104,14 @@ $(document).ready(function() {
   $('#bedroom-slider').attr('data-slider',$('#bedroom-input').val());
   $('#capacity-slider').attr('data-slider',$('#capacity-input').val()); 
   
-  $('#bedroom-slider').on('click', function(){
+  $('#bedroom-slider').on('change', function(){
     var v = $('#bedroom-slider').attr('data-slider');
     $('#bedroom-input').val(v);
-    console.log( $('#bedroom-input').val());
   });
   
-  $('#capacity-slider').on('click', function(){
+  $('#capacity-slider').on('change', function(){
     var v = $('#capacity-slider').attr('data-slider');
     $('#capacity-input').val(v);
-    console.log( $('#capacity-input').val());
   });
   
   //=============================================================
