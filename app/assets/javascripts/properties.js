@@ -1,13 +1,20 @@
 $(document).ready(function() {
   
   //=============================================================
-  // Form State
+  // TODO MORE : Form State
   //=============================================================
   
   $('#property_name').change(function() {
     $("#cancel").attr("data-reveal-id","unsaved-modal");
   });
   
+  //=============================================================
+  // Promo Image Update
+  //=============================================================
+  $('#promo-image-upload').change(function() {
+    console.log('upload');
+    $("#property-edit-form").submit();
+  });
   //=============================================================
   //Check form for errors
   //=============================================================

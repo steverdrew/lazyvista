@@ -1,5 +1,7 @@
 class PropertiesController < ApplicationController
   
+  skip_before_action :verify_authenticity_token
+  
   def index
     @user = current_user
   end
@@ -65,7 +67,11 @@ class PropertiesController < ApplicationController
     @property = Property.find(params[:id])
  
     if @property.update(property_params)
-      redirect_to action: "index"
+      respond_to do |format|
+        format.html
+        format.json
+        format.js
+      end
     else
       render 'edit'
     end
