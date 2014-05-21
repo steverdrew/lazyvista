@@ -12,8 +12,13 @@ $(document).ready(function() {
   // Promo Image Update
   //=============================================================
   $('#promo-image-upload').change(function() {
-    console.log('upload');
-    $("#property-edit-form").submit();
+    var e = document.getElementById("promo-upload-form");
+    console.log(e.id);
+    
+    $("#promo-upload-form").submit();
+    console.log('complete');
+    this.disabled = true;
+    
   });
   //=============================================================
   //Check form for errors

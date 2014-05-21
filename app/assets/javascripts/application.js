@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.cookie
 //= require jquery.fileupload
+//= require jquery.remotipart
 //= require foundation
 //= require properties
 

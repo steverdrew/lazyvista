@@ -217,6 +217,7 @@ GEM
       polyamorous (~> 1.0.0)
     rdoc (4.1.1)
       json (~> 1.4)
+    remotipart (1.2.1)
     responders (1.0.0)
       railties (>= 3.2, < 5)
     rspec-core (2.14.8)
@@ -290,6 +291,7 @@ DEPENDENCIES
   paperclip!
   poltergeist
   rails (= 4.1.0)
+  remotipart
   rspec-rails
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
