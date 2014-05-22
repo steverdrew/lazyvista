@@ -1,3 +1,5 @@
+#preloader
+  #status
 - if @user.properties.empty?
   .row
     .small-12.large-12.columns
@@ -5,22 +7,43 @@
 - else
   .row
     .small-12.large-12.columns
-      %h3= 'Manage properties'
-      %table  
-        %tr  
-        - @user.properties.each do |property|
+      %br/
+      %table
+        %thead
           %tr
-            %td= image_tag property.promo_image.url(:thumb)
-            %td= property.name
-            %td= link_to 'Preview', property_path(property)
-            %td= link_to 'Edit', edit_property_path(property)
-            %td
-              %a{"data-reveal-id" => "deleteModal", href: "#"} Delete
-              #deleteModal.reveal-modal.small.tiny{"data-reveal" => ""}
-                %h2 Delete Property
-                %p.lead Are you sure you wish to delete this property?
-                =link_to 'Delete', [property], method: :delete
-                %a.close-reveal-modal ×
+            %th.subheader= 'Property'
+            %th.subheader= 'Name'
+            %th.subheader= 'Created'
+            %th.subheader= 'Updated'
+            %th.subheader= 'Preview'
+            %th.subheader= 'Manage'
+            %th.subheader= 'Delete'
+        %tbody
+          - @user.properties.each do |property|
+            %tr
+              %td
+                %ul.clearing-thumbs{"data-clearing" => ""}
+                  %li
+                    %a{href: property.promo_image.url}
+                      %img{src: property.promo_image.url(:mini)}
+              %td
+                = link_to property.name, edit_property_path(property)
+              %td= property.created_at.to_formatted_s(:long)
+              %td= property.updated_at.to_formatted_s(:long)
+              %td.text-center
+                = link_to property_path(property) do
+                  %i.fa.fa-eye
+              %td.text-center
+                = link_to edit_property_path(property) do
+                  %i.fa.fa-cogs
+              %td.text-center
+                %a{"data-reveal-id" => "deleteModal", href: "#"}
+                  %i.fa.fa-trash-o
+                #deleteModal.reveal-modal.small.tiny{"data-reveal" => ""}
+                  %h2 Delete Property
+                  %p.lead Are you sure you wish to delete this property?
+                  =link_to 'Delete', [property], method: :delete
+                  %a.close-reveal-modal ×
   .row
     .small-12.large-12.columns    
       %p

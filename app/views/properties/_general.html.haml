@@ -1,11 +1,9 @@
 .row
   .large-6.columns
-    = f.label :name
-    = f.text_field :name, :required => ''
+    = f.text_field :name, placeholder: 'Property name', :required => ''
     %small.error Name is required
   .large-6.columns
-    = f.label :property_type
-    = f.collection_select :property_type_id, PropertyType.order(:name),:id,:name, {:include_blank => ''}, {:required => ''}
+    = f.collection_select :property_type_id, PropertyType.order(:name),:id,:name,  {:include_blank => 'Property type'}, {:required => ''}
     %small.error Property type is required
   = render 'gallery', :f=> f
 .row
@@ -16,7 +14,11 @@
       .large-2.columns
         %span#sliderOutput1{style: "display: block;margin-top: 17px;"}
       .large-6.columns
-        = f.hidden_field :bedrooms, :id => "bedroom-input"
+        - if request.path != '/properties/new'
+          = f.hidden_field :bedrooms, :id => "bedroom-input"
+        - else
+          = f.hidden_field :bedrooms, :id => "bedroom-input", :value => '1'
+         
         .range-slider.round{"data-options" => "display_selector:#sliderOutput1; start: 1; end: 10;", "data-slider" => "", id: "bedroom-slider"}
           %span.range-slider-handle
           %span.range-slider-active-segment
@@ -28,12 +30,15 @@
       .large-2.columns
         %span#sliderOutput2{style: "display: block;margin-top: 17px;"}
       .large-6.columns
-        = f.hidden_field :capacity, :id => "capacity-input"
+        - if request.path != '/properties/new'
+          = f.hidden_field :capacity, :id => "capacity-input"
+        - else
+          = f.hidden_field :capacity, :id => "capacity-input", :value => '1'
         .range-slider.round{"data-options" => "display_selector:#sliderOutput2; start: 1; end: 20;", "data-slider" => "", id: "capacity-slider"}
           %span.range-slider-handle
           %span.range-slider-active-segment
           
 .row
   .large-12.columns
-    = f.label :description
-    = f.text_area :description, {:rows => '10'}       
+    = f.text_area :description, placeholder: 'Property description', :required => '', :rows => '10'
+    %small.error Description is required

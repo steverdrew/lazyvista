@@ -7,6 +7,9 @@ $(document).ready(function() {
   $('#property_name').change(function() {
     $("#cancel").attr("data-reveal-id","unsaved-modal");
   });
+  $('#property_name').change(function() {
+    $("#cancel").attr("data-reveal-id","unsaved-modal");
+  });
   
   //=============================================================
   // Promo Image Update
@@ -18,7 +21,7 @@ $(document).ready(function() {
     $("#promo-upload-form").submit();
     console.log('complete');
     this.disabled = true;
-    
+     $("#overlay").fadeIn();  
   });
   //=============================================================
   //Check form for errors
@@ -30,7 +33,7 @@ $(document).ready(function() {
     console.log(invalid_fields);
   })
   .on('valid', function () {
-    console.log('valid!');
+    console.log('valid!!!!');
   });
   
   //=============================================================
