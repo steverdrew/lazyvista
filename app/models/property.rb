@@ -4,6 +4,8 @@ class Property < ActiveRecord::Base
   has_one :country
   has_one :region
   has_one :place
+  has_paper_trail
+  
   #has_many :assets, :dependent => :destroy
   
   #accepts_nested_attributes_for :assets

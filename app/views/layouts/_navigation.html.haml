@@ -10,6 +10,10 @@
     %ul.right
       - if user_signed_in?
         %li.divider
+        %li
+          = link_to properties_path do
+            %i.fa.fa-flag
+        %li.divider
         %li.top-nav.has-dropdown{id: "nav1"}
           = link_to properties_path do
             %i.fa.fa-home
@@ -23,6 +27,8 @@
               = link_to new_property_path do
                 %i.fa.fa-bar-chart-o
                 &nbsp; Stats
+        %li.divider
+        /Add notification system
         %li.top-nav{id: "nav2"}
           = link_to new_property_path do
             %i.fa.fa-calendar

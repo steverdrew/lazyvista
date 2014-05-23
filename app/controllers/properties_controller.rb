@@ -37,8 +37,6 @@ class PropertiesController < ApplicationController
       place = Place.find(property.place_id)
       @place_name = place.name.to_s
     end
-    
-    
 
   end
   
@@ -47,10 +45,10 @@ class PropertiesController < ApplicationController
     @property = @user.properties.create(property_params)
     if @property.save
       if @property.update(property_params)
-        if params[:commit] == 'Save and continue'
+        if params[:commit] == 'continue'
           redirect_to edit_property_path(@property)
           #flash[:notice] = "Your property has been saved for later"
-        elsif params[:commit] == 'Save for later'
+        elsif params[:commit] == 'later'
           redirect_to action: "index"
           #flash[:notice] = "Property saved"
         end
@@ -65,18 +63,56 @@ class PropertiesController < ApplicationController
   
   def update
     @property = Property.find(params[:id])
- 
+    
     if @property.update(property_params)
       respond_to do |format|
         format.html
-        format.json
         format.js
       end
     else
       render 'edit'
     end
   end
- 
+  
+  def update_promo_image
+    @property = Property.find(params[:id])
+        
+    if @property.update(property_params)
+      respond_to do |format|
+        format.html
+        format.js
+      end
+    else
+      render 'edit'
+    end
+  end
+  
+  def update_general
+    @property = Property.find(params[:id])
+        
+    if @property.update(property_params)
+      respond_to do |format|
+        format.html
+        format.js
+      end
+    else
+      render 'edit'
+    end
+  end
+  
+  def update_sliders
+    @property = Property.find(params[:id])
+        
+    if @property.update(property_params)
+      respond_to do |format|
+        format.html
+        format.js
+      end
+    else
+      render 'edit'
+    end
+  end
+  
   def update_regions
     # updates regions based on country selected
     #logger.info(">>>>>>>>>"+Country.find(params[:country_id]).to_s)
@@ -123,6 +159,10 @@ class PropertiesController < ApplicationController
   def get_country
     country = Country.find(params[:country_id])
     @country = country.map{|p| [p.name, p.id, p.lng, p.lat]}
+  end
+  
+  def undo_link
+    view_context.link_to("undo", revert_version_path(@property.versions.scoped.last), :method => :post)
   end
   
   private

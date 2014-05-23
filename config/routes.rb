@@ -15,17 +15,29 @@ Rails.application.routes.draw do
   
   get 'users/index'
   get 'home/index'
-  get 'properties/update_regions', :as => 'update_regions'
-  get 'properties/update_places', :as => 'update_places'
-  get 'properties/update_map', :as => 'update_map'
-
-  resources :properties
-      
+  
+        
   resources :users do 
     collection do
       get :properties  # add this line 
     end 
   end
+  
+  resources :properties do 
+    member do
+      get :update_regions
+      get :update_places
+      get :update_map
+      post :update_promo_image
+      post :update_sliders
+    end
+  end
+  
+  
+  post "versions/:id/revert" => "versions#revert", :as => "revert_version"
+  
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

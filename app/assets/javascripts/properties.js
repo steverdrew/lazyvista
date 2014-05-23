@@ -1,28 +1,30 @@
 $(document).ready(function() {
   
   //=============================================================
-  // TODO MORE : Form State
-  //=============================================================
-  
-  $('#property_name').change(function() {
-    $("#cancel").attr("data-reveal-id","unsaved-modal");
-  });
-  $('#property_name').change(function() {
-    $("#cancel").attr("data-reveal-id","unsaved-modal");
-  });
-  
-  //=============================================================
   // Promo Image Update
   //=============================================================
   $('#promo-image-upload').change(function() {
     var e = document.getElementById("promo-upload-form");
-    console.log(e.id);
-    
-    $("#promo-upload-form").submit();
-    console.log('complete');
-    this.disabled = true;
-     $("#overlay").fadeIn();  
+    $('#promo-image-upload').submit();
+    $("#overlay").fadeIn();  
   });
+  
+  
+  //=============================================================
+  // General Section Update
+  //=============================================================
+  $('#property_name').change(function() {
+    var e = document.getElementById("general-form");
+    $('#general_form').submit();
+    
+  });
+  $('#property_property_type_id').change(function() {
+    $('#general_form').submit();
+  });
+  $('#property_description').change(function() {
+    $('#general_form').submit();
+  });
+  
   //=============================================================
   //Check form for errors
   //=============================================================
@@ -68,7 +70,8 @@ $(document).ready(function() {
     // track where the marker is dragged to
       marker.on('dragend', function(e){
         $('#lat').val(e.target._latlng.lat);
-        $('#lng').val(e.target._latlng.lng);       
+        $('#lng').val(e.target._latlng.lng);
+        $("#promo-upload-form").submit();
       });
       
   }
@@ -122,11 +125,13 @@ $(document).ready(function() {
   $('#bedroom-slider').on('change', function(){
     var v = $('#bedroom-slider').attr('data-slider');
     $('#bedroom-input').val(v);
+    $('#slider_form').submit();
   });
   
   $('#capacity-slider').on('change', function(){
     var v = $('#capacity-slider').attr('data-slider');
     $('#capacity-input').val(v);
+    $('#slider_form').submit();
   });
   
   //=============================================================
