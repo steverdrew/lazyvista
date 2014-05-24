@@ -68,6 +68,7 @@ class PropertiesController < ApplicationController
       respond_to do |format|
         format.html
         format.js
+        #flash[:notice] = "Updated"
       end
     else
       render 'edit'
@@ -107,6 +108,7 @@ class PropertiesController < ApplicationController
       respond_to do |format|
         format.html
         format.js
+        #flash[:notice] = "Updated"
       end
     else
       render 'edit'
@@ -121,7 +123,7 @@ class PropertiesController < ApplicationController
       @country_lat = country.lat.to_s
       @country_lng = country.lng.to_s
       @country_zoom = country.zoom.to_s
-      @regions = country.regions.reject { |r| r.inactive == true }.map { |r| [r.name, r.id] }.insert(0, "Select a Region")
+      @regions = country.regions.reject { |r| r.inactive == true }.map { |r| [r.name, r.id] }.insert(0, "")
     else
       @regions = Hash['',''] 
     end 
@@ -134,7 +136,7 @@ class PropertiesController < ApplicationController
       @region_lat = region.lat.to_s
       @region_lng = region.lng.to_s
       @region_zoom = region.zoom.to_s
-      @places = region.places.reject { |p| p.inactive == true }.map { |p| [p.name, p.id] }.insert(0, "Select a Place")
+      @places = region.places.reject { |p| p.inactive == true }.map { |p| [p.name, p.id] }.insert(0, '')
       #@places = region.places.map{|p| [p.name, p.id]}.insert(0, "Select a Place")
     else
       @places = Hash['',''] 

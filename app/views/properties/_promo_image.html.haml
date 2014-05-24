@@ -1,0 +1,8 @@
+%ul.clearing-thumbs{"data-clearing" => ""}
+  %li
+    %a{href: @property.promo_image.url}
+      %img{src: @property.promo_image.url(:medium)}
+%br/
+= form_for @property, :html => {:id => "promo-upload-form"} ,  :url => update_promo_image_property_url(@property),:method => :post, remote: true do |f|
+  = f.file_field :promo_image, :id => "promo-image-upload", :accept => "image/png,image/gif,image/jpeg"
+            

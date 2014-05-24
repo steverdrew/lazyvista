@@ -15,9 +15,8 @@
 //= require jquery.cookie
 //= require jquery.fileupload
 //= require jquery.remotipart
-//= require foundation
 //= require properties
-//= require spin
+//= require foundation
 
 $(window).load(function() { // makes sure the whole site is loaded  
   $("#status").fadeOut(); // will first fade out the loading animation
@@ -25,7 +24,6 @@ $(window).load(function() { // makes sure the whole site is loaded
 })
 
 $(document).ready(function() {
-  
   
   // top nav
   id = sessionStorage.getItem('navId');
@@ -70,5 +68,3 @@ $(document).ready(function() {
 
 
 $(function(){ $(document).foundation(); });
-
-    

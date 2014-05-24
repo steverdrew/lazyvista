@@ -15,8 +15,10 @@ Rails.application.routes.draw do
   
   get 'users/index'
   get 'home/index'
-  
-        
+  get 'properties/update_regions', as: 'update_regions'
+  get 'properties/update_places', as: 'update_places'
+  get 'properties/update_map', as: 'update_map'
+            
   resources :users do 
     collection do
       get :properties  # add this line 
@@ -25,11 +27,10 @@ Rails.application.routes.draw do
   
   resources :properties do 
     member do
-      get :update_regions
-      get :update_places
-      get :update_map
+      
       post :update_promo_image
       post :update_sliders
+      post :update_general
     end
   end
   

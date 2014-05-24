@@ -14,7 +14,9 @@
 
   <body>
     <%= render 'layouts/navigation' %>
-    <%= render 'layouts/messages' %>   
+    <div id="messages">
+      <%= render 'layouts/messages' %>   
+    </div>
     <%= yield %>
     <%= javascript_include_tag "application" %>
     <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js'></script>
