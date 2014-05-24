@@ -7,7 +7,7 @@
     .row  
       .small-3.large-3.columns
         #promo-image
-          /= render partial: 'promo_image'               
+          = render partial: 'promo_image'               
         %ul.side-nav.menu-nav
           %li.menu-nav-tab.active{id: "general-tab"}
             %a{href: "#"} Headline
@@ -31,7 +31,7 @@
             .main-content
               #general
                 #general-form 
-                  /= render "general"
+                  = render "general"
                 = render "sliders"
               #location
                 /= render "location"
