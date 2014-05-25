@@ -1,8 +1,5 @@
-.row
-  .small-6.large-6.columns
-
-    - flash.each do |name, msg|
-      - if msg.is_a?(String)
-        .alert-box.success{"data-alert" => ""}
-          = content_tag :div, msg, :id => "flash_#{name}"
-          %a.close{href: "#"} ×
+- flash.each do |name, msg|
+  - if msg.is_a?(String)
+    .alert-box.success{"data-alert" => ""}
+      = content_tag :div, msg, :id => "flash_#{name}"
+      %a.close{href: "#"} ×

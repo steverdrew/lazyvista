@@ -96,7 +96,7 @@ class PropertiesController < ApplicationController
       respond_to do |format|
         format.html
         format.js
-        flash[:notice] = "Updated property"
+        flash[:notice] = "Updated property details"
       end
     else
       render 'edit'

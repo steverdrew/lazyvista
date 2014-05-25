@@ -16,10 +16,30 @@ $(document).ready(function() {
   //Form update
   //=============================================================
   $('#promo_image_upload').on('change', function () {
-    console.log('promo image');
     $('#promo_image_form').submit();
     $('#overlay').fadeIn();
   });
+  
+  $('#property_name').on('change', function () {
+    $('#general_form').submit();
+  });
+
+  $('#property_property_type_id').on('change', function () {
+    $('#general_form').submit();
+  });
+
+  $('#property_bedrooms').on('change', function () {
+    $('#general_form').submit();
+  });
+
+  $('#property_capacity').on('change', function () {
+    $('#general_form').submit();
+  });
+  
+  $('#property_description').on('change', function () {
+    $('#general_form').submit();
+  });
+
   
   
   //=============================================================
