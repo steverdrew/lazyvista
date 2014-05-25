@@ -1,53 +1,58 @@
-%nav.top-bar(data-topbar)
-  %ul.title-area
-    %li.name
-      %h1
-        = link_to 'home', root_path
-    %li.toggle-topbar.menu-icon
-      %a{:href => '#'} 
-        %span Menu
-  %section.top-bar-section
-    %ul.right
-      - if user_signed_in?
-        %li.divider
-        %li
-          = link_to properties_path do
-            %i.fa.fa-flag
-        %li.divider
-        %li.top-nav.has-dropdown{id: "nav1"}
-          = link_to properties_path do
-            %i.fa.fa-home
-            &nbsp; Properties
-          %ul.dropdown
-            %li
-              = link_to new_property_path do
-                %i.fa.fa-plus
-                &nbsp; Add
-            %li
-              = link_to new_property_path do
-                %i.fa.fa-bar-chart-o
-                &nbsp; Stats
-        %li.divider
-        /Add notification system
-        %li.top-nav{id: "nav2"}
-          = link_to new_property_path do
-            %i.fa.fa-calendar
-            &nbsp; Bookings
-        %li.divider
-        %li.top-nav{id: "nav4"}
-          = link_to edit_user_registration_path do
-            %i.fa.fa-search
-            &nbsp; Search 
-        %li.divider
-        %li.top-nav{id: "nav3"}
-          = link_to edit_user_registration_path do
-            %i.fa.fa-cog
-        %li.divider
-        %li
-          = link_to destroy_user_session_path, :method => :delete do
-            %i.fa.fa-sign-out
-      - else 
-        %li.top-nav{id: "nav4"}
-          = link_to "Sign up", new_user_registration_path 
-        %li.top-nav.active{id: "nav5"}
-          = link_to 'Login',new_user_session_path
+.sticky
+  %nav.top-bar(data-topbar)
+    %ul.title-area
+      %li.name
+        %h1
+          = link_to 'home', root_path
+      %li.toggle-topbar.menu-icon
+        %a{:href => '#'} 
+          %span Menu
+    %section.top-bar-section
+      %ul.right
+        - if user_signed_in?
+          %li.divider
+          %li
+            = link_to properties_path do
+              %i.fa.fa-flag
+          %li.divider
+          %li.top-nav.has-dropdown{id: "nav1"}
+            = link_to properties_path do
+              %i.fa.fa-home
+              &nbsp; Properties
+            %ul.dropdown
+              %li
+                = link_to new_property_path do
+                  %i.fa.fa-plus
+                  &nbsp; Add
+              %li
+                = link_to new_property_path do
+                  %i.fa.fa-bar-chart-o
+                  &nbsp; Stats
+          %li.divider
+          /Add notification system
+          %li.top-nav{id: "nav2"}
+            = link_to new_property_path do
+              %i.fa.fa-calendar
+              &nbsp; Bookings
+          %li.divider
+          %li.top-nav{id: "nav4"}
+            = link_to edit_user_registration_path do
+              %i.fa.fa-search
+              &nbsp; Search 
+          %li.divider
+          %li.top-nav{id: "nav3"}
+            = link_to edit_user_registration_path do
+              %i.fa.fa-cog
+          %li.divider
+          %li
+            = link_to destroy_user_session_path, :method => :delete do
+              %i.fa.fa-sign-out
+        - else 
+          %li.top-nav{id: "nav4"}
+            = link_to "Sign up", new_user_registration_path 
+          %li.top-nav.active{id: "nav5"}
+            = link_to 'Login',new_user_session_path
+  
+  //sub navs
+  - if request.path == '/properties/'+params[:id]+'/edit'  
+    = render 'properties/menu_edit'

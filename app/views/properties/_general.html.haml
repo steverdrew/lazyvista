@@ -11,6 +11,22 @@
       .large-12.columns
         = f.text_area :description, placeholder: 'Property description', :required => '', :rows => '10'
         %small.error Description is required
+    .row
+      .large-3.columns
+        %label= 'No of bedrooms'
+        = f.select :bedrooms, [['1',1],['2',2]],{:include_blank => ''}, {:required => ''}
+        %small.error No. of bedrooms required
+      .large-3.columns
+        %label= 'Capacity'
+        = f.select :capacity, [['1',1],['2',2]],{:include_blank => ''}, {:required => ''}
+        %small.error Capacity required
+      .large-3.columns
+        &nbsp;
+      .large-3.columns
+        &nbsp;
+    .row
+      %hr
+      = f.submit 'Update' , :disabled => true, :class => 'button right'
 - else
   .row
     .large-6.columns
@@ -20,6 +36,19 @@
       = f.collection_select :property_type_id, PropertyType.order(:name),:id,:name,  {:include_blank => 'Property type'}, {:required => ''}
       %small.error Property type is required
   .row
+    .large-6.columns
+      %label= 'Select a promo image'
+      = f.file_field :promo_image, :id => "promo-image-upload", :accept => "image/png,image/gif,image/jpeg"
+    .large-3.columns
+      %label= 'No of bedrooms'
+      = f.select :bedrooms, [['1',1],['2',2]],{:include_blank => ''}, {:required => ''}
+      %small.error No. of bedrooms required
+    .large-3.columns
+      %label= 'Capacity'
+      = f.select :capacity, [['1',1],['2',2]],{:include_blank => ''}, {:required => ''}
+      %small.error Capacity required
+  .row  
     .large-12.columns
       = f.text_area :description, placeholder: 'Property description', :required => '', :rows => '10'
       %small.error Description is required
+  

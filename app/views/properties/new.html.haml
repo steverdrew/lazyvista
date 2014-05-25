@@ -9,16 +9,12 @@
           %hr    
         = render "general", :f=> f
         = render "location", :f=> f
-        %label= 'Select a promo image'
-        = f.file_field :promo_image, :id => "promo-image-upload", :accept => "image/png,image/gif,image/jpeg"
-            
-            
       .row
         %hr
         .large-4.columns
-          = f.submit 'Save and continue', :class => 'button small', :id => "property_form", :value => "continue", :name => "commit"
+          = f.submit 'Save and continue', :class => 'button small', :id => "property_form", :value => "Save & continue", :name => "commit"
         .large-4.columns
-          = f.submit 'Save for later', :class => 'button small secondary', :id => "property_form1", :value => "later", :name => "commit"
+          = f.submit 'Save for later', :class => 'button small secondary', :id => "property_form1", :value => "Save for later", :name => "commit"
         .large-4.columns
             
           = link_to "Cancel", root_path, :class => 'button small alert right', :id => 'cancel'

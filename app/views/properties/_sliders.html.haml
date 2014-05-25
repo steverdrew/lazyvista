@@ -1,31 +1,29 @@
-= form_for @property, :html => {:data => {:abide => ''}, :id => "slider_form"},:url => update_sliders_property_url(@property),:method => :post,  remote: true do |f|
-  .row
-    .large-6.columns
-      .row
-        .large-4.columns
-          %span{style: "display: block;margin-top: 17px;"} Bedrooms:
-        .large-2.columns
-          %span#sliderOutput1{style: "display: block;margin-top: 17px;"}
-        .large-6.columns
-          - if request.path != '/properties/new'
-            = f.hidden_field :bedrooms, :id => "bedroom-input"
-          - else
-            = f.hidden_field :bedrooms, :id => "bedroom-input", :value => '1'
-          .range-slider.round{"data-options" => "display_selector:#sliderOutput1; start: 1; end: 10;", "data-slider" => "", id: "bedroom-slider"}
-            %span.range-slider-handle
-            %span.range-slider-active-segment
-
-    .large-6.columns
-      .row
-        .large-4.columns
-          %span{style: "display: block;margin-top: 17px;"} Sleeps:
-        .large-2.columns
-          %span#sliderOutput2{style: "display: block;margin-top: 17px;"}
-        .large-6.columns
-          - if request.path != '/properties/new'
-            = f.hidden_field :capacity, :id => "capacity-input"
-          - else
-            = f.hidden_field :capacity, :id => "capacity-input", :value => '1'
-          .range-slider.round{"data-options" => "display_selector:#sliderOutput2; start: 1; end: 20;", "data-slider" => "", id: "capacity-slider"}
-            %span.range-slider-handle
-            %span.range-slider-active-segment
+.row
+  .large-6.columns
+    .row
+      .large-4.columns
+        %span{style: "display: block;margin-top: 17px;"} Bedrooms:
+      .large-2.columns
+        %span#sliderOutput1{style: "display: block;margin-top: 17px;"}
+      .large-6.columns
+        - if request.path != '/properties/new'
+          = f.hidden_field :bedrooms, :id => "bedroom-input"
+        - else
+          = f.hidden_field :bedrooms, :id => "bedroom-input", :value => '1'
+        .range-slider.round{"data-options" => "display_selector:#sliderOutput1; start: 1; end: 10;", "data-slider" => "", id: "bedroom-slider"}
+          %span.range-slider-handle
+          %span.range-slider-active-segment
+  .large-6.columns
+    .row
+      .large-4.columns
+        %span{style: "display: block;margin-top: 17px;"} Sleeps:
+      .large-2.columns
+        %span#sliderOutput2{style: "display: block;margin-top: 17px;"}
+      .large-6.columns
+        - if request.path != '/properties/new'
+          = f.hidden_field :capacity, :id => "capacity-input"
+        - else
+          = f.hidden_field :capacity, :id => "capacity-input", :value => '1'
+        .range-slider.round{"data-options" => "display_selector:#sliderOutput2; start: 1; end: 20;", "data-slider" => "", id: "capacity-slider"}
+          %span.range-slider-handle
+          %span.range-slider-active-segment

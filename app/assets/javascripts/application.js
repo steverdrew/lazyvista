@@ -26,20 +26,22 @@ $(window).load(function() { // makes sure the whole site is loaded
 $(document).ready(function() {
   
   // top nav
-  id = sessionStorage.getItem('navId');
-  var e = document.getElementById(id);
-  $(e).addClass("active");
+  //id = sessionStorage.getItem('navId');
+  //var e = document.getElementById(id);
+  //$(e).addClass("active");
   
-  $(".top-nav").click(function() {
-    sessionStorage.setItem('navId',this.id);
-    id = sessionStorage.getItem('navId');
+  //$(".top-nav").click(function() {
+    //sessionStorage.setItem('navId',this.id);
+    //id = sessionStorage.getItem('navId');
      
     //reset account menu to default
     //TODO SESSION STORAGE
-    $.cookie("menuId","general-tab");
-    $.cookie("section","#general");
+    //$.cookie("menuId","general-tab");
+    //$.cookie("section","#general");
      //TODO SESSION STORAGE
-  });
+  //});
+  
+ 
   
   // side menu
   menuId = $.cookie("menuId");

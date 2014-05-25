@@ -45,10 +45,10 @@ class PropertiesController < ApplicationController
     @property = @user.properties.create(property_params)
     if @property.save
       if @property.update(property_params)
-        if params[:commit] == 'continue'
+        if params[:commit] == 'Save & continue'
           redirect_to edit_property_path(@property)
           #flash[:notice] = "Your property has been saved for later"
-        elsif params[:commit] == 'later'
+        elsif params[:commit] == 'Save for later'
           redirect_to action: "index"
           #flash[:notice] = "Property saved"
         end
@@ -68,7 +68,7 @@ class PropertiesController < ApplicationController
       respond_to do |format|
         format.html
         format.js
-        #flash[:notice] = "Updated"
+        flash[:notice] = "Updated property"
       end
     else
       render 'edit'
@@ -82,6 +82,7 @@ class PropertiesController < ApplicationController
       respond_to do |format|
         format.html
         format.js
+        flash[:notice] = "Updated promo image"
       end
     else
       render 'edit'
@@ -90,11 +91,12 @@ class PropertiesController < ApplicationController
   
   def update_general
     @property = Property.find(params[:id])
-        
+    logger.info 'working'    
     if @property.update(property_params)
       respond_to do |format|
         format.html
         format.js
+        flash[:notice] = "Updated property"
       end
     else
       render 'edit'

@@ -1,5 +1,3 @@
-
-
 $(document).ready(function() {
   
   //=============================================================
@@ -98,18 +96,18 @@ $(document).ready(function() {
   //Update intitial values
   $('#bedroom-slider').attr('data-slider',$('#bedroom-input').val());
   $('#capacity-slider').attr('data-slider',$('#capacity-input').val()); 
-  
+    
   $('#bedroom-slider').on('change', function(){
-    console.log('!!!');
     var v = $('#bedroom-slider').attr('data-slider');
     $('#bedroom-input').val(v);
-    //$('#slider_form').submit();
+    console.log(v);
+    
   });
   
   $('#capacity-slider').on('change', function(){
     var v = $('#capacity-slider').attr('data-slider');
     $('#capacity-input').val(v);
-    //$('#slider_form').submit();
+    console.log(v);
   });
   
   $("#promo-image-upload").on("click", function() {

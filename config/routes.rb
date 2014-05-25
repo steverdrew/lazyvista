@@ -27,10 +27,8 @@ Rails.application.routes.draw do
   
   resources :properties do 
     member do
-      
-      post :update_promo_image
-      post :update_sliders
       post :update_general
+      post :update_promo_image
     end
   end
   

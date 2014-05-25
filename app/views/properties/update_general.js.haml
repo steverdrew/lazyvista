@@ -1,2 +1,15 @@
-//$("#general-form").html("#{escape_javascript(render partial: 'general')}");
-//$("#messages").html("#{escape_javascript(render partial: 'layouts/messages')}");
+console.log('hello');
+//Update intitial values
+
+$("#general").html("#{escape_javascript(render partial: 'general')}");
+$("#messages").html("#{escape_javascript(render partial: 'layouts/messages')}");
+//$('#capacity-slider').attr('data-slider',$('#capacity-input').val()); 
+//$('#bedroom-slider').attr('data-slider',$('#bedroom-input').val());
+//console.log($('#bedroom-slider').attr('data-slider'));
+//console.log($('#bedroom-input').val());
+//$(document).foundation();
+$(document).foundation('reflow');
+//$('#general').foundation({bindings: 'events'});
+//setTimeout(function(){$(document).foundation('reflow')}, 500);
+
+
