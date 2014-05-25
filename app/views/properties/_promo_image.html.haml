@@ -1,4 +1,4 @@
-= form_for @property, :html => {:data => {:abide => ''}, :id => "general_form"},:url => update_promo_image_property_url(@property),:method => :post, remote: true do |f|
+= form_for @property, :html => {:data => {:abide => ''}, :id => "promo_image_form"},:url => update_promo_image_property_url(@property),:method => :post, remote: true do |f|
   .row
     .large-12.columns
       %ul.clearing-thumbs{"data-clearing" => ""}
@@ -8,5 +8,5 @@
   .row
     .large-12.columns
       %br/
-      = f.file_field :promo_image, :id => "promo-image-upload", :accept => "image/png,image/gif,image/jpeg"
-      = f.submit 'Update Promo Image' ,:class => 'button tiny', :disabled => true
+      = f.file_field :promo_image, :id => "promo_image_upload", :accept => "image/png,image/gif,image/jpeg"
+      //= f.submit 'Update Promo Image' ,:class => 'button tiny', :disabled => true, :id => 'promo_image_submit'

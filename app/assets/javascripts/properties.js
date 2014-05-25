@@ -1,17 +1,26 @@
 $(document).ready(function() {
   
   //=============================================================
-  //Check form for errors
+  //Check form for errors - foundation abide
   //=============================================================
-  
-  $('#property_form')
-  .on('invalid', function () {
+ 
+  $('#property_form').on('invalid', function () {
     var invalid_fields = $(this).find('[data-invalid]');
     console.log(invalid_fields);
   })
   .on('valid', function () {
-    console.log('valid!!!!');
+    console.log('valid');
   });
+  
+  //=============================================================
+  //Form update
+  //=============================================================
+  $('#promo_image_upload').on('change', function () {
+    console.log('promo image');
+    $('#promo_image_form').submit();
+    $('#overlay').fadeIn();
+  });
+  
   
   //=============================================================
   // Map functions
