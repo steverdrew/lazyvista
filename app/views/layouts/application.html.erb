@@ -13,11 +13,11 @@
   </head>
 
   <body>
-    <%= render 'layouts/overlay' %>
-    <%= render 'layouts/spinner' %>
     <%= render 'layouts/navigation' %>
+    <%= render 'layouts/overlay' %>
     <%= yield %>
     <%= javascript_include_tag "application" %>
+    <%= yield :javascript_includes %>
     <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js'></script>
   </body>
 </html>

@@ -51,10 +51,12 @@
           %li.top-nav{id: "nav4"}
             = link_to "Sign up", new_user_registration_path 
           %li.top-nav.active{id: "nav5"}
-            = link_to 'Login',new_user_session_path
-  #messages
-    = render "layouts/messages"
-  
-  //sub navs
-  - if request.path == '/properties/'+params[:id]+'/edit'  
-    = render 'properties/menu_edit'
+            = link_to 'Login',new_user_session_path 
+
+  .row
+    - if(params.has_key?(:id))
+      - if request.path == '/properties/'+params[:id]+'/edit'  
+        = render 'properties/menu_edit'
+
+    #messages
+      = render "layouts/messages"

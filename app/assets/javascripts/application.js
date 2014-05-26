@@ -15,7 +15,6 @@
 //= require jquery.cookie
 //= require jquery.fileupload
 //= require jquery.remotipart
-//= require properties
 //= require foundation
 
 $(window).load(function() { // makes sure the whole site is loaded  
@@ -44,27 +43,27 @@ $(document).ready(function() {
  
   
   // side menu
-  menuId = $.cookie("menuId");
-  var ei = document.getElementById(menuId)
-  $('.menu-nav-tab').removeClass('active');
-  $(".main-content").children().hide();
-  $(ei).addClass("active");
-  $($.cookie("section")).show();
+  //menuId = $.cookie("menuId");
+  //var ei = document.getElementById(menuId)
+  //$('.menu-nav-tab').removeClass('active');
+  //$(".main-content").children().hide();
+  //$(ei).addClass("active");
+  //$($.cookie("section")).show();
      
-  $(".menu-nav-tab").click(function() {
-    var parts = this.id.split("-");
-    $(".main-content").children().hide();
-    $('.menu-nav-tab').removeClass('active');
-    $(this).addClass("active");
-    $("#" + parts[0]).show();
+ // $(".menu-nav-tab").click(function() {
+  //  var parts = this.id.split("-");
+  //  $(".main-content").children().hide();
+  //  $('.menu-nav-tab').removeClass('active');
+  //  $(this).addClass("active");
+   // $("#" + parts[0]).show();
     
     
      //TODO SESSION STORAGE
-    $.cookie("menuId",this.id);
-    $.cookie("section","#" + parts[0]);
+  //  $.cookie("menuId",this.id);
+   // $.cookie("section","#" + parts[0]);
      //TODO SESSION STORAGE
 
-  });
+ // });
    
 });
 

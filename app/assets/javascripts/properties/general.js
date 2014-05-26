@@ -75,7 +75,7 @@ $(document).ready(function() {
       marker.on('dragend', function(e){
         $('#lat').val(e.target._latlng.lat);
         $('#lng').val(e.target._latlng.lng);
-        $("#promo-upload-form").submit();
+        $("#location_form").submit();
       });
       
   }

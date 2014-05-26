@@ -103,14 +103,14 @@ class PropertiesController < ApplicationController
     end
   end
   
-  def update_sliders
+  def update_location
     @property = Property.find(params[:id])
         
     if @property.update(property_params)
       respond_to do |format|
         format.html
         format.js
-        #flash[:notice] = "Updated"
+        flash[:notice] = "Location updated"
       end
     else
       render 'edit'

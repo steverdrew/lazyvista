@@ -1,21 +1,23 @@
-.row
-  - if request.path != '/properties/new'
-    = f.hidden_field :lat, :id => "lat", :value => @lat
-    = f.hidden_field :lng, :id => "lng", :value => @lng
-    %input{id: "zoom", type: "hidden", value: "15"}
-    %p
-      Drag the marker to update the postion or &nbsp;
-      = link_to 'Start over'
-  - else
-    = f.hidden_field :lat, :id => "lat", :value => "1"
-    = f.hidden_field :lng, :id => "lng", :value => "1"
-    %input{id: "zoom", type: "hidden", value: "1"}
-    .large-4.columns
-      = f.collection_select(:country_id, @countries, :id, :name, {:prompt   => "Select a Country"}, {:required => ''})
-      %small.error Region required
-    .large-4.columns
-      = f.select( :region_id, '',{}, {:required => ''})
-      %small.error Region required
-    .large-4.columns
-      = f.select( :place_id, '',{}, {:required => ''})
-      %small.error Place required
+- if request.path != '/properties/new'
+  = form_for @property, :html => {:data => {:abide => ''}, :id => "location_form"},:url => update_location_property_url(@property),:method => :post, remote: true do |f|
+    .row
+      = f.hidden_field :lat, :id => "lat", :value => @lat
+      = f.hidden_field :lng, :id => "lng", :value => @lng
+      %input{id: "zoom", type: "hidden", value: "15"}
+      %p
+        Drag the marker to update the postion or &nbsp;
+        = link_to 'Start over'
+        #edit-property-map
+- else
+  = f.hidden_field :lat, :id => "lat", :value => "1"
+  = f.hidden_field :lng, :id => "lng", :value => "1"
+  %input{id: "zoom", type: "hidden", value: "1"}
+  .large-4.columns
+    = f.collection_select(:country_id, @countries, :id, :name, {:prompt   => "Select a Country"}, {:required => ''})
+    %small.error Region required
+  .large-4.columns
+    = f.select( :region_id, '',{}, {:required => ''})
+    %small.error Region required
+  .large-4.columns
+    = f.select( :place_id, '',{}, {:required => ''})
+    %small.error Place required

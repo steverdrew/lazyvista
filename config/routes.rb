@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     member do
       post :update_general
       post :update_promo_image
+      post :update_location
     end
   end
   

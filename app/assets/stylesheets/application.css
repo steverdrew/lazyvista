@@ -69,3 +69,7 @@
     height: 100%;
     display: none;
 }
+
+#screen {
+   height: 100vh;
+}

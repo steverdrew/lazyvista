@@ -1,3 +1,8 @@
+- content_for :javascript_includes do
+  = javascript_include_tag "properties/general.js"
+  = javascript_include_tag "properties/edit_form.js"   
+#preloader
+  #status
 .row
   .small-12.large-12.columns
     %p
@@ -5,26 +10,28 @@
     %br/
     %h4.subheader.magellan-menu{"data-magellan-destination"=>"general"} General
   .row
-    .small-4.large-4.columns
-      #promo_image
-        = render "promo_image" 
-    .small-8.large-8.columns
-      #general
-        = render "general"
-.row
-  .small-12.large-12.columns
-    %p
-      %a{name: "location"}
-    %br/
-    %h4.subheader.magellan-menu{"data-magellan-destination"=>"location"} Location
-    .row
-      = render "general"
-.row
-  .small-12.large-12.columns
-    %p
-      %a{name: "gallery"}
-    %br/  
-    %h4.subheader.magellan-menu{"data-magellan-destination"=>"gallery"} Gallery
-    .row
-      = render "general"
-    
+    #screen
+      .small-3.large-3.columns
+        #promo_image
+          = render "promo_image" 
+      .small-9.large-9.columns
+        #general
+          = render "general"
+  .row
+    #screen
+      .small-12.large-12.columns
+        %p
+          %a{name: "location"}
+        %br/
+        %h4.subheader.magellan-menu{"data-magellan-destination"=>"location"} Location
+        #location
+          = render "location"
+  .row
+    #screen
+      .small-12.large-12.columns
+        %p
+          %a{name: "gallery"}
+        %br/  
+        %h4.subheader.magellan-menu{"data-magellan-destination"=>"gallery"} Gallery
+        .row
+          = render "general"

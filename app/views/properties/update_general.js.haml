@@ -1,6 +1,4 @@
-console.log('hello');
 //Update intitial values
-
 $("#general").html("#{escape_javascript(render partial: 'general')}");
 $("#messages").html("#{escape_javascript(render partial: 'layouts/messages')}");
 //$('#capacity-slider').attr('data-slider',$('#capacity-input').val()); 
@@ -36,5 +34,5 @@ $('#general_form').submit();
 
 $('#property_description').on('change', function () {
 $('#general_form').submit();
-});  
+});
 
