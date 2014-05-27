@@ -1,6 +1,8 @@
 //Update intitial values
 $("#general").html("#{escape_javascript(render partial: 'general')}");
 $("#messages").html("#{escape_javascript(render partial: 'layouts/messages')}");
+$(document).foundation();
+$(document).foundation('reflow');
 //$('#capacity-slider').attr('data-slider',$('#capacity-input').val()); 
 //$('#bedroom-slider').attr('data-slider',$('#bedroom-input').val());
 //console.log($('#bedroom-slider').attr('data-slider'));

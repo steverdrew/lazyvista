@@ -1,5 +1,8 @@
 $(document).ready(function() {
   
+  
+  console.log('new');
+  
   //=============================================================
   //Check form for errors - foundation abide
   //=============================================================
@@ -12,35 +15,8 @@ $(document).ready(function() {
     console.log('valid');
   });
   
-  //=============================================================
-  //Form update
-  //=============================================================
-  $('#promo_image_upload').on('change', function () {
-    $('#promo_image_form').submit();
-    $('#overlay').fadeIn();
-  });
   
-  $('#property_name').on('change', function () {
-    $('#general_form').submit();
-  });
-
-  $('#property_property_type_id').on('change', function () {
-    $('#general_form').submit();
-  });
-
-  $('#property_bedrooms').on('change', function () {
-    $('#general_form').submit();
-  });
-
-  $('#property_capacity').on('change', function () {
-    $('#general_form').submit();
-  });
-  
-  $('#property_description').on('change', function () {
-    $('#general_form').submit();
-  });
-
-  
+ 
   
   //=============================================================
   // Map functions

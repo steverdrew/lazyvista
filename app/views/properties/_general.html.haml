@@ -8,22 +8,27 @@
         = f.collection_select :property_type_id, PropertyType.order(:name),:id,:name,  {:include_blank => 'Property type'}, {:required => ''}
         %small.error Property type is required
     .row
-      .large-12.columns
+      .large-9.columns
         = f.text_area :description, placeholder: 'Property description', :required => '',:id => 'property_description', :rows => '10'
         %small.error Description is required
+      .row
+        .large-2.columns
+          .row
+            .large-12.columns
+              %label= 'No of bedrooms'
+              = f.select :bedrooms, [['1',1],['2',2]],{:include_blank => ''}, {:required => '', :id => 'property_bedrooms'}
+              %small.error No. of bedrooms required
+            .large-12.columns
+              %label= 'Capacity'
+              = f.select :capacity, [['1',1],['2',2],['3',3]],{:include_blank => ''}, {:required => '', :id => 'property_capacity'}
+              %small.error Capacity required
     .row
-      .large-3.columns
-        %label= 'No of bedrooms'
-        = f.select :bedrooms, [['1',1],['2',2]],{:include_blank => ''}, {:required => '', :id => 'property_bedrooms'}
-        %small.error No. of bedrooms required
-      .large-3.columns
-        %label= 'Capacity'
-        = f.select :capacity, [['1',1],['2',2]],{:include_blank => ''}, {:required => '', :id => 'property_capacity'}
-        %small.error Capacity required
-      .large-3.columns
-        &nbsp;
-      .large-3.columns
-        &nbsp;
+      .large-12.columns
+        %hr
+        =f.submit 'Update', :class=>'button small right', :id => 'edit_submit_button', :disabled => ''
+
+
+
 - else
   .row
     .large-6.columns
@@ -44,8 +49,5 @@
       %label= 'Capacity'
       = f.select :capacity, [['1',1],['2',2]],{:include_blank => ''}, {:required => ''}
       %small.error Capacity required
-  .row  
-    .large-12.columns
-      = f.text_area :description, placeholder: 'Property description', :required => '', :rows => '10'
-      %small.error Description is required
+  
   
