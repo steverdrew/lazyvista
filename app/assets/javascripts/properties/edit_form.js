@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('#general_link').click();
+  //$('#general_link').click();
   
   
   //=============================================================
@@ -11,7 +11,6 @@ $(document).ready(function() {
   });
   
    $('#property_name').on('change', function () {
-     console.log('name');
     document.getElementById('edit_submit_button').disabled = false;
   });
 

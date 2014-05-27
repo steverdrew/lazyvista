@@ -1,40 +1,40 @@
 //Update intitial values
-$("#general").html("#{escape_javascript(render partial: 'general')}");
 $("#messages").html("#{escape_javascript(render partial: 'layouts/messages')}");
+$("#general").html("#{escape_javascript(render partial: 'general')}");
+//$("#navigation").html("#{escape_javascript(render partial: 'layouts/navigation')}");
 $(document).foundation();
-$(document).foundation('reflow');
+//$(document).foundation('reflow');
 //$('#capacity-slider').attr('data-slider',$('#capacity-input').val()); 
 //$('#bedroom-slider').attr('data-slider',$('#bedroom-input').val());
 //console.log($('#bedroom-slider').attr('data-slider'));
 //console.log($('#bedroom-input').val());
-//$(document).foundation();
-//$(document).foundation('reflow');
-//$('#general').foundation({bindings: 'events'});
-//setTimeout(function(){$(document).foundation('reflow')}, 500);
+$(document).foundation('reflow');
+$('#general').foundation({bindings: 'events'});
+setTimeout(function(){$(document).foundation('reflow')}, 500);
 
 //=============================================================
 // General Section Update
 //=============================================================
 $('#property_name').on('change', function() {
-$('#general_form').submit();   
+document.getElementById('edit_submit_button').disabled = false;
 });
 $('#property_name').on('change', function () {
-$('#general_form').submit();
+document.getElementById('edit_submit_button').disabled = false;
 });
 
 $('#property_property_type_id').on('change', function () {
-$('#general_form').submit();
+document.getElementById('edit_submit_button').disabled = false;
 });
 
 $('#property_bedrooms').on('change', function () {
-$('#general_form').submit();
+document.getElementById('edit_submit_button').disabled = false;
 });
 
 $('#property_capacity').on('change', function () {
-$('#general_form').submit();
+document.getElementById('edit_submit_button').disabled = false;
 });
 
 $('#property_description').on('change', function () {
-$('#general_form').submit();
+document.getElementById('edit_submit_button').disabled = false;
 });
 
