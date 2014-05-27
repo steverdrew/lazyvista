@@ -5,12 +5,12 @@
         .small-12.large-12.columns
           %h4= "Add a property"
           %h5.subheader= "It won't go live just yet"   
-        .row
           %hr    
         = render "general", :f=> f
         = render "location", :f=> f
       .row
-        %hr
+        .small-12.large-12.columns
+          %hr
         .large-4.columns
           = f.submit 'Save and continue', :class => 'button small', :id => "property_form", :value => "Save & continue", :name => "commit"
         .large-4.columns

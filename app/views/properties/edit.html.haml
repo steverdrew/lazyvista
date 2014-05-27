@@ -39,6 +39,21 @@
         %a{name: "gallery"}
       %br/  
       %h4.subheader.magellan-menu{"data-magellan-destination"=>"gallery"} Gallery
-      .row
-        = render "general"
+      /= render "gallery"
+.row
+  #screen
+    .small-12.large-12.columns
+      %p
+        %a{name: "features"}
+      %br/  
+      %h4.subheader.magellan-menu{"data-magellan-destination"=>"features"} Features
+      /= render "features"
         
+.row
+  #screen
+    .small-12.large-12.columns
+      %p
+        %a{name: "descriptions"}
+      %br/  
+      %h4.subheader.magellan-menu{"data-magellan-destination"=>"descriptions"} Descriptions
+      /= render "descriptions"
