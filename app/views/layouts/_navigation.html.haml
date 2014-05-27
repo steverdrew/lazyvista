@@ -52,7 +52,9 @@
             = link_to "Sign up", new_user_registration_path 
           %li.top-nav.active{id: "nav5"}
             = link_to 'Login',new_user_session_path 
-  - if(params.has_key?(:id))
-    - if request.path == '/properties/'+params[:id]+'/edit'  
-      = render 'properties/menu_edit'
+  .row
+    .large-12.columns
+      - if(params.has_key?(:id))
+        - if request.path == '/properties/'+params[:id]+'/edit'  
+          = render 'properties/menu_edit'
   
