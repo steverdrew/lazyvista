@@ -1,0 +1,21 @@
+- content_for :javascript_includes do
+  = javascript_include_tag "devise/registrations/edit_form.js"   
+#overlay
+#preloader
+  #status
+.row
+  .small-12.large-12.columns
+    #general_messages
+      = render "layouts/messages"
+    %p
+      %a{name: "general"}
+    %br/
+    %h4.subheader.magellan-menu{"data-magellan-destination"=>"general"} General
+.row
+  #screen
+    .small-3.large-3.columns
+      #promo_image
+        = render "avatar" 
+    .small-9.large-9.columns
+      #general
+        = render "general"

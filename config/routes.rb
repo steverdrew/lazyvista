@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "devise/custom/registrations" }
   
   devise_scope :user do
     authenticated :user do
@@ -15,22 +15,36 @@ Rails.application.routes.draw do
   
   get 'users/index'
   get 'home/index'
+  
+  
+  #properties
   get 'properties/update_regions', as: 'update_regions'
   get 'properties/update_places', as: 'update_places'
   get 'properties/update_map', as: 'update_map'
-            
+  
+  #registrations
+  patch 'users/update_avatar', as: 'update_avatar'
+  
   resources :users do 
+    
+    
     collection do
-      get :properties  # add this line 
-    end 
+      get :properties  # add this line
+    end
+    
   end
   
   resources :properties do 
+    
+    resources :property_assets
+    
     member do
       post :update_general
       post :update_promo_image
       post :update_location
+  
     end
+
   end
   
   

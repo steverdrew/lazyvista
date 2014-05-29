@@ -22,6 +22,8 @@ class PropertiesController < ApplicationController
     @property = property
     @lat = property.lat.to_s
     @lng = property.lng.to_s
+    @images = property.property_assets.asset_content_type_starts_with('image')
+    
     
     if property.country_id.present? && property.country_id > 0 
       country = Country.find(property.country_id)

@@ -4,9 +4,8 @@
       %ul.clearing-thumbs{"data-clearing" => ""}
         %li
           %a{href: @property.promo_image.url}
-            %img{src: @property.promo_image.url(:medium)}
+            %img{src: @property.promo_image(:medium)}
   .row
     .large-12.columns
       %br/
       = f.file_field :promo_image, :id => "promo_image_upload", :accept => "image/png,image/gif,image/jpeg"
-      //= f.submit 'Update Promo Image' ,:class => 'button tiny', :disabled => true, :id => 'promo_image_submit'

@@ -1,0 +1,11 @@
+= form_for resource, as: resource_name, url: update_avatar_user_url(resource_name),  html: { method: :put, :id => 'avatar_form' }, remote: true do |f|
+  .row
+    .large-12.columns
+      %ul.clearing-thumbs{"data-clearing" => ""}
+        %li
+          %a{href: @user.avatar.url}
+            %img{src: @user.avatar.url(:medium)}
+  .row
+    .large-12.columns
+      %br/
+      = f.file_field :avatar, :id => "avatar_upload", :accept => "image/png,image/gif,image/jpeg"

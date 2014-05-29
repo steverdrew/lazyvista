@@ -1,6 +1,7 @@
 - content_for :javascript_includes do
+  = javascript_include_tag "properties/edit_form.js"
   = javascript_include_tag "properties/general.js"
-  = javascript_include_tag "properties/edit_form.js"   
+  
 #overlay
 #preloader
   #status
@@ -36,10 +37,19 @@
   #screen
     .small-12.large-12.columns
       %p
-        %a{name: "gallery"}
+        %a{name: "assets"}
       %br/  
-      %h4.subheader.magellan-menu{"data-magellan-destination"=>"gallery"} Gallery
-      /= render "gallery"
+      %h4.subheader.magellan-menu{"data-magellan-destination"=>"assets"} Media &amp; Docs
+      %h6.subheader= 'Upload photos, videos and documents for this property. Optionally make them private.'
+      %br
+      .row
+        .large-4.columns
+          #create_asset
+            .panel
+              = render "property_assets/create_asset"
+        .large-8.columns
+          #update_assets
+            = render "property_assets/assets"    
 .row
   #screen
     .small-12.large-12.columns

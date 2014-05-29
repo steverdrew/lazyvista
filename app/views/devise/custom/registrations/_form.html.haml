@@ -1,4 +1,5 @@
-
+- content_for :javascript_includes do
+  = javascript_include_tag "properties/edit_form.js"   
 #preloader
   #status  
 %br/
@@ -31,7 +32,6 @@
             .row
               .large-6.columns
                 = f.label :current_password
-                %i (we need your current password to confirm your changes)
                 = f.password_field :current_password, autocomplete: "off"
             .row
               .large-12.columns

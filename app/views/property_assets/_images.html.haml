@@ -1,0 +1,12 @@
+- @property.property_assets.each do |asset|
+  - if asset.id.present?
+    .row
+      .large-2.columns
+        %ul.clearing-thumbs{"data-clearing" => ""}
+          %li
+            %a{href: asset.asset.url}
+              %img{src: asset.asset(:thumb)}
+      .large-10.columns
+        = form_for [@property, asset] do |f|
+          %label
+            = asset.description

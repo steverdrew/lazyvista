@@ -54,7 +54,9 @@
             = link_to 'Login',new_user_session_path 
   .row
     .large-12.columns
+      - if request.path == '/users/edit'  
+        = render 'devise/custom/registrations/menu_edit'
       - if(params.has_key?(:id))
         - if request.path == '/properties/'+params[:id]+'/edit'  
           = render 'properties/menu_edit'
-  
+        

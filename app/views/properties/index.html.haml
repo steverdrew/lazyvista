@@ -15,8 +15,7 @@
             %th.subheader= 'Name'
             %th.subheader= 'Created'
             %th.subheader= 'Updated'
-            %th.subheader= 'Preview'
-            %th.subheader= 'Manage'
+            %th.subheader= 'Actions'
             %th.subheader= 'Delete'
         %tbody
           - @user.properties.each do |property|
@@ -33,9 +32,11 @@
               %td.text-center
                 = link_to property_path(property) do
                   %i.fa.fa-eye
-              %td.text-center
+                |
                 = link_to edit_property_path(property) do
-                  %i.fa.fa-cogs
+                  %i.fa.fa-cog
+              %td.text-center
+                
               %td.text-center
                 %a{"data-reveal-id" => "deleteModal", href: "#"}
                   %i.fa.fa-trash-o
@@ -49,6 +50,3 @@
       %p
         Got more?
         =link_to('Add another', new_property_path)
-
-
-  

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  //$('#general_link').click();
+  $('#general_link').click();
   
   
   //=============================================================

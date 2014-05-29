@@ -1,0 +1,2 @@
+module PropertyAssetsHelper
+end
