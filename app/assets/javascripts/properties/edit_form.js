@@ -1,11 +1,6 @@
 $(document).ready(function() {
   $('#general_link').click();
   
-   var docHeight = $(document).height();
-
-   $("#overlay").height(docHeight);
-  
-  
   //=============================================================
   //Form update
   //=============================================================
@@ -47,10 +42,15 @@ $(document).ready(function() {
   });
   
   $('#asset_upload_submit').on('click', function () {
-    $('#overlay').fadeIn();
+    //$('#overlay').fadeIn();
   });
   
   
+    
+  $(document).on('click', 'span', function () {
+    alert(this.id);
+  });
+    
   
 });
 

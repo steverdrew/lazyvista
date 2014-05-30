@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528110402) do
+ActiveRecord::Schema.define(version: 20140530153150) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -53,8 +53,23 @@ ActiveRecord::Schema.define(version: 20140528110402) do
     t.decimal  "lat"
     t.decimal  "lng"
     t.integer  "zoom"
-    t.boolean  "inactive"
+    t.boolean  "inactive",   default: true
   end
+
+  create_table "feature_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "features", force: true do |t|
+    t.string   "name"
+    t.integer  "feature_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "features", ["feature_type_id"], name: "index_features_on_feature_type_id"
 
   create_table "place_types", force: true do |t|
     t.string   "name"
@@ -73,7 +88,7 @@ ActiveRecord::Schema.define(version: 20140528110402) do
     t.decimal  "lat"
     t.decimal  "lng"
     t.integer  "zoom"
-    t.boolean  "inactive"
+    t.boolean  "inactive",      default: true
   end
 
   add_index "places", ["region_id"], name: "index_places_on_region_id"
@@ -117,36 +132,21 @@ ActiveRecord::Schema.define(version: 20140528110402) do
     t.integer  "property_id"
     t.string   "description"
     t.boolean  "private"
-    t.string   "type"
     t.string   "asset_type"
   end
 
   add_index "property_assets", ["asset_type"], name: "index_property_assets_on_asset_type"
   add_index "property_assets", ["property_id"], name: "index_property_assets_on_property_id"
-  add_index "property_assets", ["type"], name: "index_property_assets_on_type"
 
-  create_table "property_galleries", force: true do |t|
+  create_table "property_features", force: true do |t|
     t.integer  "property_id"
-    t.string   "description"
+    t.integer  "feature_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "item_file_name"
-    t.string   "item_content_type"
-    t.integer  "item_file_size"
-    t.datetime "item_updated_at"
   end
 
-  add_index "property_galleries", ["property_id"], name: "index_property_galleries_on_property_id"
-
-  create_table "property_photos", force: true do |t|
-    t.integer  "property_id"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-  end
-
-  add_index "property_photos", ["property_id"], name: "index_property_photos_on_property_id"
+  add_index "property_features", ["feature_id"], name: "index_property_features_on_feature_id"
+  add_index "property_features", ["property_id"], name: "index_property_features_on_property_id"
 
   create_table "property_types", force: true do |t|
     t.string   "name"
@@ -164,7 +164,7 @@ ActiveRecord::Schema.define(version: 20140528110402) do
     t.decimal  "lat"
     t.decimal  "lng"
     t.integer  "zoom"
-    t.boolean  "inactive"
+    t.boolean  "inactive",   default: true
   end
 
   add_index "regions", ["country_id"], name: "index_regions_on_country_id"

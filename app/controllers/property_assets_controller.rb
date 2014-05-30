@@ -15,20 +15,18 @@ class PropertyAssetsController < ApplicationController
       if @property_asset.update(property_asset_params)
           respond_to do |format|
             format.html
-            format.js
-                        
-          flash[:notice] = "File added"
+            format.js { flash[:notice] = "File added" }
         end
+      end
     end
-    end 
+    
   end
  
   def update
     if @property_asset.update(property_asset_params)
       respond_to do |format|
         format.html
-        format.js{ }
-        flash[:notice] = "Updated property asset"
+        format.js{}
       end
     else
       render 'edit'
@@ -47,10 +45,10 @@ class PropertyAssetsController < ApplicationController
     
     
     respond_to do |format|
-    format.html
-    format.js
-      flash[:notice] = "Deleted"
+      format.html
+      format.js { flash[:notice] = "File deleted" }
     end
+    
   end
   
   private

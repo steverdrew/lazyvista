@@ -22,6 +22,10 @@ $(window).load(function() { // makes sure the whole site is loaded
 	$("#preloader").delay(1000).fadeOut("slow"); // will fade out the white DIV that covers the website.
 })
 
+var docHeight = $(document).height();
+$("#overlay").height(docHeight);
+$("#preloader").height(docHeight);
+
 $(document).ready(function() {
   
   // top nav

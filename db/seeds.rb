@@ -37,4 +37,9 @@ Place.create(id: 4, name: 'Spofforth', place_type_id: 4, region_id: 1, lat: 53.9
 Place.create(id: 5, name: 'Murcia', place_type_id: 4, region_id: 3, lat: 37.992240, lng: -1.130654, zoom: 10, inactive: false)
 Place.create(id: 6, name: 'Rome', place_type_id: 4, region_id: 4, lat: 41.872389, lng: 12.480180, zoom: 10, inactive: false)
 
+FeatureType.create(id: 1, name: 'General')
+FeatureType.create(id: 2, name: 'Kitchen')
 
+Feature.create(id: 1, name: 'WiFi', feature_type_id: 1)
+Feature.create(id: 2, name: 'High speed internet', feature_type_id: 1)
+Feature.create(id: 3, name: 'Microwave', feature_type_id: 2)
