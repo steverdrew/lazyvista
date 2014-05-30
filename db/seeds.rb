@@ -25,10 +25,10 @@ Country.create(id: 6, name: 'Spain', lat: 40.463667, lng: -3.749220, zoom: 5, in
 Country.create(id: 7, name: 'France', lat: 46.227638, lng: 2.213749, zoom: 5, inactive: true)
 Country.create(id: 8, name: 'Italy', lat: 46.227638, lng: 2.213749, zoom: 5, inactive: false)
 
-Region.create(id: 1, name: 'Yorkshire Dales', country_id: 1, lat: 54.304602, lng: -2.192544, zoom: 8 )
+Region.create(id: 1, name: 'Yorkshire Dales', country_id: 1, lat: 54.304602, lng: -2.192544, zoom: 8, inactive: false )
 Region.create(id: 2, name: 'Lake District',  country_id: 1, lat: 54.478770, lng: -3.066540, zoom: 8, inactive: true )
-Region.create(id: 3, name: 'Murcia Region',  country_id: 6, lat: 38.139814, lng: -1.366216, zoom: 8 )
-Region.create(id: 4, name: 'Lazio',  country_id: 8, lat: 38.139814, lng: -1.366216, zoom: 8 )
+Region.create(id: 3, name: 'Murcia Region',  country_id: 6, lat: 38.139814, lng: -1.366216, zoom: 8, inactive: true )
+Region.create(id: 4, name: 'Lazio',  country_id: 8, lat: 38.139814, lng: -1.366216, zoom: 8, inactive: false )
 
 Place.create(id: 1, name: 'Harrogate', place_type_id: 1, region_id: 1, lat: 53.992120, lng: -1.541812, zoom: 10, inactive: false)
 Place.create(id: 2, name: 'Rudding Park', place_type_id: 3, region_id: 1, lat: 53.975048, lng: -1.495832, zoom: 13, inactive: false)

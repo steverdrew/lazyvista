@@ -4,7 +4,6 @@ class PropertiesController < ApplicationController
   
   def index
     @user = current_user
-    
   end
   
   def new
@@ -21,6 +20,8 @@ class PropertiesController < ApplicationController
   def edit
     
     @property = Property.find(params[:id])
+    @feature_types = FeatureType.order(:name)
+    @features = Feature.order(:feature_type_id)
     property = Property.find(params[:id])
     
     @lat = property.lat.to_s
@@ -32,7 +33,6 @@ class PropertiesController < ApplicationController
     #get related docs
     @videos = Property.find(params[:id])
     @videos = property.property_assets.asset_content_type_starts_with('video')
-    
     
     #get related docs
     @docs = Property.find(params[:id])
@@ -53,9 +53,7 @@ class PropertiesController < ApplicationController
       place = Place.find(property.place_id)
       @place_name = place.name.to_s
     end
-    
-    
-    
+   
   end
   
   def create
@@ -74,9 +72,7 @@ class PropertiesController < ApplicationController
 
     else
       render 'new'
-    end
-
-    
+    end  
   end
   
   def update
@@ -144,6 +140,7 @@ class PropertiesController < ApplicationController
       @country_lng = country.lng.to_s
       @country_zoom = country.zoom.to_s
       @regions = country.regions.reject { |r| r.inactive == true }.map { |r| [r.name, r.id] }.insert(0, "")
+      logger.info ">>>>>>>>>>>>>>>>>>>>>"+ @regions.to_s
     else
       @regions = Hash['',''] 
     end 

@@ -5,6 +5,7 @@ class Property < ActiveRecord::Base
   has_one :region
   has_one :place
   has_many :property_assets
+  has_many :property_features
   
   has_paper_trail
   

@@ -1,11 +1,13 @@
-.row
-  .small-12.large-12.columns
-    %h6.subheader= 'General Amenities'
-    %hr/
-    .row
-      .small-12.large-12.columns
-        %label General
-        %input#checkbox1{type: "checkbox"}/
-        %label{for: "checkbox1"} Checkbox 1
-        %input#checkbox2{type: "checkbox"}/
-        %label{for: "checkbox2"} Checkbox 2
+- @feature_types.each do |type|
+  .row
+    .small-12.large-12.columns
+      %br/
+      %h5.subheader
+        = type.name
+      .row
+        .small-12.large-12.columns
+          - @features.each do |feature|
+            - if feature.feature_type_id ==  type.id
+              %input#checkbox2{type: "checkbox"}/
+              %label{for: "checkbox2"} 
+                = feature.name
