@@ -1,3 +1,8 @@
-$("#assets").html("#{escape_javascript(render @property.property_assets)}");
-//$("messages").html("#{escape_javascript(render partial: 'layouts/messages')}");
-('#overlay').fadeOut();
+$('#overlay').fadeOut();
+//$("#images").html("#{escape_javascript(render 'images')}");
+//$("#videos").html("#{escape_javascript(render 'videos')}");
+//$("#docs").html("#{escape_javascript(render 'docs')}");
+$('#asset_upload').on('change', function () {
+document.getElementById('asset_upload_submit').disabled = false;
+});
+  

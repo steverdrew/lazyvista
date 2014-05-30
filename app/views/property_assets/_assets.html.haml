@@ -7,9 +7,11 @@
     %a{href: "#panel2-3"} Documents
 .tabs-content
   #panel2-1.content.active
-    = render 'property_assets/images'
-    
+    #images
+      = render partial: 'property_assets/images'
   #panel2-2.content
-    = render 'property_assets/videos'
+    #vidoes
+      = render 'property_assets/videos'
   #panel2-3.content
-    = render 'property_assets/docs'
+    #docs
+      = render 'property_assets/docs'

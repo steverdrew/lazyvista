@@ -1,6 +1,10 @@
 $(document).ready(function() {
   $('#general_link').click();
   
+   var docHeight = $(document).height();
+
+   $("#overlay").height(docHeight);
+  
   
   //=============================================================
   //Form update
@@ -29,7 +33,23 @@ $(document).ready(function() {
   $('#property_description').on('change', function () {
     document.getElementById('edit_submit_button').disabled = false;
   });
-
+  
+  //===========================================
+  //Assets
+  //===========================================
+  
+  $('#asset_upload').on('change', function () {
+    document.getElementById('asset_upload_submit').disabled = false;
+  });
+  
+  $('#property_description').on('change', function () {
+    document.getElementById('edit_submit_button').disabled = false;
+  });
+  
+  $('#asset_upload_submit').on('click', function () {
+    $('#overlay').fadeIn();
+  });
+  
   
   
 });

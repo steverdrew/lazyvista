@@ -29,7 +29,7 @@ class Property < ActiveRecord::Base
   #validates_attachment_content_type :promo_video, :content_type => /\Aimage\/.*\Z/
   #validates_attachment_content_type :promo_video, :content_type => { :content_type => ["video/mpeg", "video/avi", "video/mp4"] }
   
-  #scope :asset_content_type, -> (asset_content_type) { where asset_content_type: asset_content_type }
-  #scope :starts_with, -> (asset_content_type_desc) { where("asset_content_type like ?", "#{asset_content_type}%")}
-  #scope :asset_not_null, where('asset is not null')
+  scope :asset_content_type, -> (asset_content_type) { where asset_content_type: asset_content_type }
+  scope :starts_with, -> (asset_content_type) { where("asset_content_type like ?", "#{asset_content_type}%")}
+  scope :asset_not_null, where('asset is not null')
 end

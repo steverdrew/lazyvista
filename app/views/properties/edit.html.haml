@@ -42,13 +42,15 @@
       %h4.subheader.magellan-menu{"data-magellan-destination"=>"assets"} Media &amp; Docs
       %h6.subheader= 'Upload photos, videos and documents for this property. Optionally make them private.'
       %br
+      #asset_messages
+        = render "layouts/messages"
       .row
         .large-4.columns
           #create_asset
             .panel
               = render "property_assets/create_asset"
         .large-8.columns
-          #update_assets
+          #assets
             = render "property_assets/assets"    
 .row
   #screen

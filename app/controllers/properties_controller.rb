@@ -4,6 +4,7 @@ class PropertiesController < ApplicationController
   
   def index
     @user = current_user
+    
   end
   
   def new
@@ -18,11 +19,24 @@ class PropertiesController < ApplicationController
   end
   
   def edit
+    
+    @property = Property.find(params[:id])
     property = Property.find(params[:id])
-    @property = property
+    
     @lat = property.lat.to_s
     @lng = property.lng.to_s
+    
+    #get related images
     @images = property.property_assets.asset_content_type_starts_with('image')
+    
+    #get related docs
+    @videos = Property.find(params[:id])
+    @videos = property.property_assets.asset_content_type_starts_with('video')
+    
+    
+    #get related docs
+    @docs = Property.find(params[:id])
+    @docs = property.property_assets.asset_content_type_starts_with('application')
     
     
     if property.country_id.present? && property.country_id > 0 
@@ -39,7 +53,9 @@ class PropertiesController < ApplicationController
       place = Place.find(property.place_id)
       @place_name = place.name.to_s
     end
-
+    
+    
+    
   end
   
   def create

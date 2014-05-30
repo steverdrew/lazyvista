@@ -1,0 +1,10 @@
+$("#create_asset").html("#{escape_javascript(render 'create_asset')}");
+$("#images").html("#{escape_javascript(render 'images')}");
+$("#videos").html("#{escape_javascript(render 'videos')}");
+$("#docs").html("#{escape_javascript(render 'docs')}");
+$("#asset_messages").html("#{escape_javascript(render partial: 'layouts/messages')}");
+
+
+$('#asset_upload').on('change', function () {
+document.getElementById('asset_upload_submit').disabled = false;
+});

@@ -1,0 +1,26 @@
+- @videos.each do |asset|
+  = form_for [@property, asset], remote: true do |f|
+    - if asset.id.present?
+      .row
+        .large-2.columns
+          %ul.clearing-thumbs{"data-clearing" => ""}
+            %li
+              %a{href: asset.asset.url}
+                %img{src: asset.asset(:thumb)}
+        .large-10.columns
+          .row
+            .large-12.columns         
+              = f.text_field :description, :placeholder => 'Description', :id => 'test1'
+          .row
+            .large-4.columns
+              %label
+                = asset.asset_file_name
+            .large-3.columns
+              %p
+                = f.check_box :private, :id => 'private'
+                %label{for: "private"} Private
+            .large-2.columns
+              = f.submit 'Update', :class => 'button tiny right round', :disabled => '', :html => { :id => "update#{asset.id}" },  :remote => true
+            .large-2.columns
+              %p.right
+                = link_to 'Delete', [@property, asset], method: :delete, :class => 'button tiny right round alert',  :remote => true

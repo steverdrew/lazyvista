@@ -1,18 +1,17 @@
-= form_for ([@property, @property.property_assets.build]), remote: true  do |f|
+#overlay
+= form_for ([@property, @property.property_assets.build]), :html => {:id => "asset_upload_form"}, remote: true  do |f|
   .row
     .large-12.columns
-      = f.file_field :asset, :id => "asset_upload", :accept => "image/png,image/gif,image/jpeg"
-  .row
-
+      = f.file_field :asset, :id => "asset_upload", :accept => "image/png,image/gif,image/jpeg,application/pdf"
   .row
     .large-12.columns
       = f.text_field :description, :placeholder => "Description"
   .row
     .large-8.columns
-      %p.text
+      %p
         = f.check_box :private, :id => 'private'
         %label{for: "private"} Mark as private
     .large-4.columns      
-      = f.submit 'Add file', :class => 'button small right'    
+      = f.submit 'Add file', :class => 'button small right round', :id => 'asset_upload_submit', :disabled => 'true'
  
 
