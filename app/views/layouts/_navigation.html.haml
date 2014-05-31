@@ -30,10 +30,16 @@
                   &nbsp; Stats
           %li.divider
           /Add notification system
-          %li.top-nav{id: "nav2"}
+          %li.top-nav.has-dropdown{id: "nav2"}
             = link_to new_property_path do
-              %i.fa.fa-calendar
+              %i.fa.fa-dollar
               &nbsp; Bookings
+            %ul.dropdown
+              %li
+                = link_to new_property_path do
+                  %i.fa.fa-calendar
+                  &nbsp; Calendar
+              
           %li.divider
           %li.top-nav{id: "nav4"}
             = link_to edit_user_registration_path do

@@ -15,7 +15,6 @@
             %th.subheader= 'Name'
             %th.subheader= 'Created'
             %th.subheader= 'Updated'
-            %th.subheader= 'Actions'
             %th.subheader= 'Delete'
         %tbody
           - @user.properties.each do |property|
@@ -29,14 +28,6 @@
                 = link_to property.name, edit_property_path(property)
               %td= property.created_at.to_formatted_s(:long)
               %td= property.updated_at.to_formatted_s(:long)
-              %td.text-center
-                = link_to property_path(property) do
-                  %i.fa.fa-eye
-                |
-                = link_to edit_property_path(property) do
-                  %i.fa.fa-cog
-              %td.text-center
-                
               %td.text-center
                 %a{"data-reveal-id" => "deleteModal", href: "#"}
                   %i.fa.fa-trash-o

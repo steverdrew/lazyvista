@@ -82,7 +82,6 @@ class PropertiesController < ApplicationController
       respond_to do |format|
         format.html
         format.js
-        flash[:notice] = "Updated property"
       end
     else
       render 'edit'
@@ -110,7 +109,7 @@ class PropertiesController < ApplicationController
       respond_to do |format|
         format.html
         format.js
-        flash[:notice] = "Updated property details"
+        flash[:notice] = "Updated property details. #{undo_link}"
       end
     else
       render 'edit'
@@ -124,7 +123,7 @@ class PropertiesController < ApplicationController
       respond_to do |format|
         format.html
         format.js
-        flash[:notice] = "Location updated"
+        flash[:notice] = "Location updated #{undo_link}"
       end
     else
       render 'edit'
@@ -180,9 +179,6 @@ class PropertiesController < ApplicationController
     @country = country.map{|p| [p.name, p.id, p.lng, p.lat]}
   end
   
-  def undo_link
-    view_context.link_to("undo", revert_version_path(@property.versions.scoped.last), :method => :post)
-  end
   
   private
     def property_params
@@ -190,5 +186,10 @@ class PropertiesController < ApplicationController
         :country_id, :region_id, :place_id, :bedrooms, :capacity, :promo_image, :promo_video,
         :lat, :lng)
     end
+    
+    def undo_link
+      view_context.link_to("Undo", revert_version_path(@property.versions.last), :method => :post)
+    end
+  
   
 end
