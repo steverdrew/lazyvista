@@ -26,11 +26,8 @@
       %hr
       .large-8.columns
         &nbsp;  
-      .large-2.columns
-        =f.submit 'Update', :class=>'button small round', :id => 'edit_submit_button', :disabled => ''
-      .large-2.columns
-        =link_to 'Reset', '#', :class=>'button small alert round right'
-      
+      .large-12.columns
+        =f.submit 'Update', :class=>'button small round right', :id => 'edit_submit_button', :disabled => ''
 
 - else
   .large-12.columns

@@ -1,8 +1,5 @@
 $(document).ready(function() {
   
-  
-  console.log('new');
-  
   //=============================================================
   //Check form for errors - foundation abide
   //=============================================================
@@ -150,18 +147,19 @@ $(document).ready(function() {
   
   // New Property
   if (document.getElementById("new-property-map")) {
-    var map = L.mapbox.map('new-property-map', 'steverdrew.i8d4kj32').setView([$('#lat').val(), $('#lng').val()],           $('#zoom').val());
+    var map = L.mapbox.map('new-property-map', 'steverdrew.i8d4kj32').setView([$('#lat').val(), $('#lng').val()], $('#zoom').val());
   }
 
   // Edit Property
+  var item = sessionStorage.getItem('sub-menu-item'); 
+    
   if (document.getElementById("edit-property-map")) {
-    var map = L.mapbox.map('edit-property-map', 'steverdrew.i8d4kj32').setView([$('#lat').val(), $('#lng').val()],         $('#zoom').val());
+    var map = L.mapbox.map('edit-property-map', 'steverdrew.i8d4kj32').setView([$('#lat').val(), $('#lng').val()], $('#zoom').val());
     console.log('map');
     createMarker();
   }
-  
-  
-  
+
+
 });
 
 

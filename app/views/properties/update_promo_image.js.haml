@@ -1,5 +1,5 @@
 $("#promo_image").html("#{escape_javascript(render partial: 'promo_image')}");
-$("messages").html("#{escape_javascript(render partial: 'layouts/messages')}");
+$("#messages").html("#{escape_javascript(render partial: 'layouts/messages')}");
 $('#overlay').fadeOut();
 $('#promo_image_upload').on('change', function () {
 console.log('promo image');

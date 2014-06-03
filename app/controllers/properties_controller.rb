@@ -123,7 +123,7 @@ class PropertiesController < ApplicationController
       respond_to do |format|
         format.html
         format.js
-        flash[:notice] = "Location updated #{undo_link}"
+        flash[:notice] = "Location updated. #{undo_link}"
       end
     else
       render 'edit'
@@ -139,7 +139,6 @@ class PropertiesController < ApplicationController
       @country_lng = country.lng.to_s
       @country_zoom = country.zoom.to_s
       @regions = country.regions.reject { |r| r.inactive == true }.map { |r| [r.name, r.id] }.insert(0, "")
-      logger.info ">>>>>>>>>>>>>>>>>>>>>"+ @regions.to_s
     else
       @regions = Hash['',''] 
     end 

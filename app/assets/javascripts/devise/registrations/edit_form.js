@@ -11,4 +11,11 @@ $(document).ready(function() {
     $('#overlay').fadeIn();
   });
   
+  //=============================================================
+  //Form update
+  //=============================================================
+  $('#email').on('change', function () {
+    document.getElementById('edit_submit_button').disabled = false;
+  });
+  
 });

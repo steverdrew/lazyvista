@@ -1,5 +1,19 @@
 $(document).ready(function() {
-  $('#general_link').click();
+  
+  var item = sessionStorage.getItem('sub-menu-item'); 
+  
+  if(item == 'property-assets'){                                  
+    $('#overlay').fadeOut();
+    $('#asset_link').click();
+    sessionStorage.setItem('sub-menu-item','general-link');
+    console.log('page refreshed');
+  }
+  
+  else{
+  
+    $('#general_link').click();
+  
+  }
   
   //=============================================================
   //Form update
@@ -42,7 +56,9 @@ $(document).ready(function() {
   });
   
   $('#asset_upload_submit').on('click', function () {
-    //$('#overlay').fadeIn();
+    $('#overlay').fadeIn();
+    sessionStorage.setItem('sub-menu-item','property-assets');
+    
   });
   
   

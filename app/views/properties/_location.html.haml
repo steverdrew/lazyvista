@@ -4,12 +4,7 @@
     = f.hidden_field :lng, :id => "lng", :value => @lng
     %input{id: "zoom", type: "hidden", value: "15"}
     %p
-      Drag the marker to update the postion or &nbsp;
-      = link_to 'Start over'
       #edit-property-map
-      %br/
-      %hr/
-      =link_to 'Reset', '#', :class=>'button small alert round right'
 
 - else
   = f.hidden_field :lat, :id => "lat", :value => "1"

@@ -1,3 +1,15 @@
-console.log('everything works fine');
-$("#images").html("#{escape_javascript(render 'images')}");
+//$("#images").html("#{escape_javascript(render partial: 'images' , locals: { assets: @images})}");
+//$("#images").load();
+$('#overlay').fadeOut();
+$("#create_asset").html("#{escape_javascript(render 'create_asset')}");
+$("#messages").html("#{escape_javascript(render 'layouts/messages')}");
+//$(document).foundation();
+//$(document).foundation('reflow');
+//$('#general').foundation({bindings: 'events'});
+
+$('#asset_upload').on('change', function () {
+document.getElementById('asset_upload_submit').disabled = false;
+});
+
+
   

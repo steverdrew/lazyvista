@@ -7,12 +7,11 @@
   #status
 .row
   .small-12.large-12.columns
-    #general_messages
-      = render "layouts/messages"
     %p
       %a{name: "general"}
     %br/
     %h4.subheader.magellan-menu{"data-magellan-destination"=>"general"} General
+    %h6.subheader= 'Snazzy stuff goes here.'
 .row
   #screen
     .small-3.large-3.columns
@@ -28,9 +27,7 @@
         %a{name: "location"}
       %br/
       %h4.subheader.magellan-menu{"data-magellan-destination"=>"location"} Location
-      
-      #location_messages
-        = render "layouts/messages"
+      %h6.subheader= 'Specify the approximate location'
       #location
         = render "location"
 .row
@@ -42,8 +39,6 @@
       %h4.subheader.magellan-menu{"data-magellan-destination"=>"assets"} Media &amp; Docs
       %h6.subheader= 'Upload photos, videos and documents for this property. Optionally make them private.'
       %br
-      #asset_messages
-        = render "layouts/messages"
       .row
         .large-4.columns
           #create_asset
@@ -59,7 +54,7 @@
         %a{name: "features"}
       %br/  
       %h4.subheader.magellan-menu{"data-magellan-destination"=>"features"} Features
-      %h6.subheader= 'Select the features relevant to this property'
+      %h6.subheader= 'Select the features relevant for this property'
       = render "features"
         
 .row
@@ -69,4 +64,5 @@
         %a{name: "descriptions"}
       %br/  
       %h4.subheader.magellan-menu{"data-magellan-destination"=>"descriptions"} Descriptions
+      %h6.subheader= 'Provide more detailed information'
       = render "descriptions"

@@ -1,4 +1,4 @@
-= form_for resource, as: resource_name, url: update_avatar_user_url(resource_name),  html: { method: :put, :id => 'avatar_form' }, remote: true do |f|
+= form_for resource, as: resource_name, url: update_avatar_path(resource_name),  html: { method: :post, :id => 'avatar_form' }   do |f|
   .row
     .large-12.columns
       %ul.clearing-thumbs{"data-clearing" => ""}

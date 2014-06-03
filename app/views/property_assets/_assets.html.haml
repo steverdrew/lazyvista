@@ -4,11 +4,11 @@
   %dd
     %a{href: "#panel2-2"} Videos
   %dd
-    %a{href: "#panel2-3"} Documents
+    %a{href: "#panel2-3"} Documentss
 .tabs-content
   #panel2-1.content.active
     #images
-      = render partial: 'property_assets/images'
+      = render partial: 'property_assets/images' , locals: { assets: @images}
   #panel2-2.content
     #vidoes
       = render 'property_assets/videos'
