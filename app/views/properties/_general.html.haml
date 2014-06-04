@@ -2,7 +2,7 @@
   = form_for @property, :html => {:data => {:abide => ''}, :id => "general_form"},:url => update_general_property_url(@property),:method => :post, remote: true do |f|
     .row
       .large-6.columns
-        = f.text_field :name, placeholder: 'Property name', :id => 'property_name', :required => ''
+        = f.text_field :name, placeholder: 'Property name', :id => 'property_name', :required => '', autofocus: true
         %small.error Name is required
       .large-6.columns
         = f.collection_select :property_type_id, PropertyType.order(:name),:id,:name,  {:include_blank => 'Property type'}, {:required => ''}

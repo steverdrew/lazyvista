@@ -1,0 +1,10 @@
+console.log('>>>>>>>>>>');
+$('#overlay').fadeOut();
+$("#avatar").html("#{escape_javascript(render partial: 'avatar')}");
+//$("#email").html("#{escape_javascript(render partial: 'email')}");
+//$("#messages").html("#{escape_javascript(render partial: 'layouts/messages')}");
+
+$('#email').on('change', function () {
+document.getElementById('email_submit_button').disabled = false;
+});
+  

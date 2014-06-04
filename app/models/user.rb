@@ -6,7 +6,9 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:facebook]
    
   has_many :properties
-
+  
+  has_paper_trail
+  
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => ""
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 

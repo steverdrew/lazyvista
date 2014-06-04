@@ -14,8 +14,17 @@ $(document).ready(function() {
   //=============================================================
   //Form update
   //=============================================================
-  $('#email').on('change', function () {
-    document.getElementById('edit_submit_button').disabled = false;
+  $('#name').on('change', function () {
+    document.getElementById('general_submit_button').disabled = false;
   });
+  
+  $('#email').on('change', function () {
+    document.getElementById('email_submit_button').disabled = false;
+  });
+  
+  $('#new_password').on('change', function () {
+    document.getElementById('password_submit_button').disabled = false;
+  });
+  
   
 });
