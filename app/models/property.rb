@@ -7,6 +7,7 @@ class Property < ActiveRecord::Base
   has_one :place
   has_many :property_assets
   has_many :property_features
+  has_one :audience
   
   has_paper_trail
   

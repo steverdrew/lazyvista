@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:facebook]
    
   has_many :properties
+  has_one :plan
   
   has_paper_trail
   

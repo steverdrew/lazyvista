@@ -19,12 +19,8 @@ class RegistrationsController < Devise::RegistrationsController
     #logger.info('>>>>>>>>>>>>>>>>>'+params.has_key?([:user][:email]))
     
     successfully_updated = if needs_password?(@user, params)
-      logger.info('>>>>>>>>>>>>>>>>>With')
-      
       @user.update_with_password(devise_parameter_sanitizer.sanitize(:account_update))
     else
-     logger.info('>>>>>>>>>>>>>>>>>Without')
-     
      # remove the virtual current_password attribute
       # update_without_password doesn't know how to ignore it
       params[:user].delete(:current_password)
@@ -38,7 +34,7 @@ class RegistrationsController < Devise::RegistrationsController
       
       respond_to do |format|
         format.html
-        format.js {flash[:notice] = "Email updated. To confirm the change please check your inbox."}
+        format.js {flash[:notice] = "Account updated."}
       end
 
     else

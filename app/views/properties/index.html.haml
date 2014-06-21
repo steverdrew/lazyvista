@@ -23,7 +23,7 @@
                 %ul.clearing-thumbs{"data-clearing" => ""}
                   %li
                     %a{href: property.promo_image.url}
-                      %img{src: property.promo_image.url(:mini)}
+                      %img{src: property.promo_image.url(:thumb)}
               %td
                 = link_to property.name, edit_property_path(property)
               %td= property.created_at.to_formatted_s(:long)

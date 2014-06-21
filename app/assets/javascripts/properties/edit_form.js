@@ -1,19 +1,16 @@
 $(document).ready(function() {
   
   var item = sessionStorage.getItem('sub-menu-item'); 
-  
-  if(item == 'property-assets'){                                  
-    $('#overlay').fadeOut();
-    $('#asset_link').click();
-    sessionStorage.setItem('sub-menu-item','general-link');
-    console.log('page refreshed');
+  if(item){                                   
+    console.log(item);
+    $('#'+item).click();
+    sessionStorage.setItem('sub-menu-item',null); 
   }
-  
   else{
-  
     $('#general_link').click();
-  
   }
+  
+  
   
   //=============================================================
   //Form update
@@ -57,7 +54,7 @@ $(document).ready(function() {
   
   $('#asset_upload_submit').on('click', function () {
     $('#overlay').fadeIn();
-    sessionStorage.setItem('sub-menu-item','property-assets');
+    sessionStorage.setItem('sub-menu-item','assets_link');
     
   });
   

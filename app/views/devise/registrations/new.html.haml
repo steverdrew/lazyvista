@@ -1,0 +1,40 @@
+%br/
+%br/
+%br/
+%br/
+%br/
+%br/
+%br/
+
+.row
+  .small-8.large-8.columns
+    %h1= "Rent out your second home to friends, family, strangers"
+    %br/
+    %h4.subheader= "Villas, boat houses, apartments, castles. And everything in between."
+    %br/
+    = link_to 'Free. Upgraded plans from $2/m'
+    
+  .small-4.large-4.columns
+    %h5.subheader Get started
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = devise_error_messages!
+      = f.email_field :email, placeholder: 'Email address'
+      %input#checkbox2{type: "checkbox"}/
+      %label{for: "checkbox2"} 
+        I'd like to add my own property
+      = f.collection_select :plan_id, Plan.order(:name),:id,:name,  {:include_blank => 'Choose a plan...'}, {:required => ''}
+        
+      = f.password_field :password, autocomplete: "off", placeholder: 'Password'
+      = f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Password confirmation'
+
+      = f.submit "Sign me up", :class => 'button expand'
+        
+.row
+  .small-12.large-12.columns.text-center
+    %br/
+    %br/
+    %br/
+    %br/
+    %hr/
+    %h2= "Why you'll love lazyvista"
+    

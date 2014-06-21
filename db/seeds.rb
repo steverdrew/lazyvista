@@ -11,10 +11,21 @@ PropertyType.create(name: 'House Boat')
 PropertyType.create(name: 'Bungalow')
 PropertyType.create(name: 'Castle / Chateau')
 
+Audience.create(name: 'Private')
+Audience.create(name: 'Friends & Family')
+Audience.create(name: 'Trusted')
+Audience.create(name: 'Public')
+
 PlaceType.create(id: 1, name: 'Town')
 PlaceType.create(id: 2, name: 'City')
 PlaceType.create(id: 3, name: 'Golf Resort')
 PlaceType.create(id: 4, name: 'Village')
+
+Plan.create(name: 'Friends & Family')
+Plan.create(name: 'Standard')
+
+
+
 
 Country.create(id: 1, name: 'England', lat: 52.355518, lng: -1.174320, zoom: 5, inactive: false)
 Country.create(id: 2, name: 'Scotland', lat: 56.490671, lng: -4.202646, zoom: 5, inactive: false)

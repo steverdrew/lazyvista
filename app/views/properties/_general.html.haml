@@ -1,12 +1,15 @@
 - if request.path != '/properties/new'
   = form_for @property, :html => {:data => {:abide => ''}, :id => "general_form"},:url => update_general_property_url(@property),:method => :post, remote: true do |f|
     .row
-      .large-6.columns
+      .large-4.columns
         = f.text_field :name, placeholder: 'Property name', :id => 'property_name', :required => '', autofocus: true
         %small.error Name is required
-      .large-6.columns
-        = f.collection_select :property_type_id, PropertyType.order(:name),:id,:name,  {:include_blank => 'Property type'}, {:required => ''}
+      .large-4.columns
+        = f.collection_select :property_type_id, PropertyType.order(:name),:id,:name,  {:include_blank => 'Select property type'}, {:required => ''}
         %small.error Property type is required
+      .large-4.columns
+        = f.collection_select :audience_id, Audience.order(:name),:id,:name,  {:include_blank => 'Choose your audience'}, {:required => ''}
+        %small.error Audience type is required
     .row
       .large-9.columns
         = f.text_area :description, placeholder: 'Property description', :required => '',:id => 'property_description', :rows => '10'

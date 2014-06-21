@@ -151,12 +151,21 @@ $(document).ready(function() {
   }
 
   // Edit Property
-  var item = sessionStorage.getItem('sub-menu-item'); 
+  //var item = sessionStorage.getItem('sub-menu-item'); 
     
   if (document.getElementById("edit-property-map")) {
     var map = L.mapbox.map('edit-property-map', 'steverdrew.i8d4kj32').setView([$('#lat').val(), $('#lng').val()], $('#zoom').val());
     console.log('map');
     createMarker();
+  }
+
+  // Amenities
+  //var item = sessionStorage.getItem('sub-menu-item'); 
+    
+  if (document.getElementById("amenities-map")) {
+    var map2 = L.mapbox.map('amenities-map', 'steverdrew.ihkeeb4h').setView([$('#lat').val(), $('#lng').val()], $('#zoom').val());
+    console.log('amenities map');
+    //createMarker();
   }
 
 

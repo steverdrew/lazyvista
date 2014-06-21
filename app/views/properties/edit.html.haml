@@ -66,3 +66,13 @@
       %h4.subheader.magellan-menu{"data-magellan-destination"=>"descriptions"} Descriptions
       %h6.subheader= 'Provide more detailed information'
       = render "descriptions"
+      
+.row
+  #screen
+    .small-12.large-12.columns
+      %p
+        %a{name: "amenities"}
+      %br/  
+      %h4.subheader.magellan-menu{"data-magellan-destination"=>"amenities"} Amenities
+      %h6.subheader= 'Show local amenities relevant to your property'
+      = render "location"

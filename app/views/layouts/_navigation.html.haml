@@ -3,19 +3,19 @@
     %ul.title-area
       %li.name
         %h1
-          = link_to 'home', root_path
+          = link_to 'lazyvista', root_path
       %li.toggle-topbar.menu-icon
         %a{:href => '#'} 
           %span Menu
     %section.top-bar-section
       %ul.right
         - if user_signed_in?
-          %li.divider
-          %li{:title => "Notifications"}
+          -#%li.divider
+          -#%li{:title => "Notifications"}
             = link_to properties_path do
               %i.fa.fa-flag
-          %li.divider
-          %li{:title => "Kudos"}
+          -#%li.divider
+          -#%li{:title => "Kudos"}
             = link_to properties_path do
               %i.fa.fa-thumbs-o-up
           %li.divider
@@ -30,38 +30,42 @@
                 = link_to new_property_path do
                   &nbsp; Stats
           %li.divider
-          /Add notification system
-          %li.top-nav.has-dropdown{id: "nav2"}
+          -#Add notification system
+          -#%li.top-nav.has-dropdown{id: "nav2"}
             = link_to new_property_path do
               &nbsp; Bookings
             %ul.dropdown
               %li
                 = link_to new_property_path do
                   &nbsp; Calendar
-          %li.top-nav{id: "nav8"}
+          -#%li.top-nav{id: "nav3"}
             = link_to new_property_path do
               &nbsp; Messages
               
-          %li.divider
-          %li.top-nav{id: "nav3"}
+          -#%li.divider
+          -#%li.top-nav{id: "nav4"}
             = link_to edit_user_registration_path do
               %i.fa.fa-search
               &nbsp; Search 
           %li.divider
-          %li.top-nav{id: "nav4"}
+          %li.top-nav.has-dropdown{id: "nav5"}
             = link_to edit_user_registration_path do
               &nbsp;
               = current_user.email
+            %ul.dropdown
+              %li
+                = link_to new_property_path do
+                  &nbsp; My circles
           %li.divider
           %li
             = link_to destroy_user_session_path, :method => :delete do
               %i.fa.fa-sign-out
         - else 
-          %li.top-nav{id: "nav5"}
-            = link_to "Plans", new_user_registration_path 
           %li.top-nav{id: "nav6"}
+            = link_to "Plans", plans_path 
+          %li.top-nav{id: "nav7"}
             = link_to "Sign up", new_user_registration_path 
-          %li.top-nav.active{id: "nav7"}
+          %li.top-nav.active{id: "nav8"}
             = link_to 'Login',new_user_session_path 
   .row
     - if request.path == '/users/edit'  

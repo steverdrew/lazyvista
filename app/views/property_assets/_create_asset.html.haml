@@ -1,8 +1,8 @@
 #overlay
-= form_for ([@property, @property.property_assets.build]), :html => {:id => "asset_upload_form"}, remote: true  do |f|
+= form_for ([@property, @property.property_assets.build]), :html => {:id => "asset_upload_form"}  do |f|
   .row
     .large-12.columns
-      = f.file_field :asset, :id => "asset_upload", :accept => "image/png,image/gif,image/jpeg,application/pdf"
+      = f.file_field :asset, :id => "asset_upload", :accept => "image/png,image/gif,image/jpeg"
   .row
     .large-12.columns
       = f.text_field :description, :placeholder => "Description"

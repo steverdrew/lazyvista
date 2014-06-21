@@ -1,0 +1,6 @@
+= form_for @property, :html => {:data => {:abide => ''}, :id => "location_form"},:url => update_location_property_url(@property),:method => :post, remote: true do |f|
+  = f.hidden_field :lat, :id => "lat", :value => @lat
+  = f.hidden_field :lng, :id => "lng", :value => @lng
+  %input{id: "zoom", type: "hidden", value: "15"}
+  %p
+    #amenities-map

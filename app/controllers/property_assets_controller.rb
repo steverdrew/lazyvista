@@ -13,11 +13,8 @@ class PropertyAssetsController < ApplicationController
             
     if @property_asset.save
       if @property_asset.update(property_asset_params)
-          respond_to do |format|
-            flash[:notice] = "File added. Refresh page to see it."
-            format.html { redirect_to edit_property_path(@property) } 
-            format.js
-        end
+        flash[:notice] = "Asset added."
+        redirect_to edit_property_path(@property)     
       end
     end
     
@@ -47,7 +44,7 @@ class PropertyAssetsController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.js { flash[:notice] = "File deleted." }
+      format.js { flash[:notice] = "File deleted."}
     end
     
   end

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     #post '/update_user_registration' => 'devise/custom/registrations#update' ,  as: :update_user_registration
     
     authenticated :user do
-      root 'home#index', as: :authenticated_root
+      root 'properties#index', as: :authenticated_root
     end
     unauthenticated do
       root 'devise/registrations#new', as: :unauthenticated_root
@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   
   get 'users/index'
   get 'home/index'
+  get 'home/plans', as: 'plans'
   
   #versions
   post "versions/:id/revert" => "versions#revert", :as => "revert_version"

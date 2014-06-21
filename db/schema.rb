@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140530153150) do
+ActiveRecord::Schema.define(version: 20140605095237) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -45,6 +45,12 @@ ActiveRecord::Schema.define(version: 20140530153150) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+
+  create_table "audiences", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "countries", force: true do |t|
     t.string   "name"
@@ -93,6 +99,12 @@ ActiveRecord::Schema.define(version: 20140530153150) do
 
   add_index "places", ["region_id"], name: "index_places_on_region_id"
 
+  create_table "plans", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "properties", force: true do |t|
     t.string   "name"
     t.text     "description"
@@ -115,8 +127,10 @@ ActiveRecord::Schema.define(version: 20140530153150) do
     t.string   "promo_video_content_type"
     t.integer  "promo_video_file_size"
     t.datetime "promo_video_updated_at"
+    t.integer  "audience_id"
   end
 
+  add_index "properties", ["audience_id"], name: "index_properties_on_audience_id"
   add_index "properties", ["country_id"], name: "index_properties_on_country_id"
   add_index "properties", ["property_type_id"], name: "index_properties_on_property_type_id"
   add_index "properties", ["region_id"], name: "index_properties_on_region_id"
@@ -195,10 +209,12 @@ ActiveRecord::Schema.define(version: 20140530153150) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "plan_id"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["plan_id"], name: "index_users_on_plan_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "versions", force: true do |t|

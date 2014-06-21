@@ -183,7 +183,7 @@ class PropertiesController < ApplicationController
     def property_params
       params.require(:property).permit(:name, :description, :property_type_id, 
         :country_id, :region_id, :place_id, :bedrooms, :capacity, :promo_image, :promo_video,
-        :lat, :lng)
+        :lat, :lng, :audience_id)
     end
     
     def undo_link
