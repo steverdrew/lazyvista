@@ -3,9 +3,9 @@
     = f.hidden_field :lat, :id => "lat", :value => @lat
     = f.hidden_field :lng, :id => "lng", :value => @lng
     %input{id: "zoom", type: "hidden", value: "15"}
-    %p
-      #edit-property-map
-
+    .large-12.columns
+      #edit_property_map
+  
 - else
   = f.hidden_field :lat, :id => "lat", :value => "1"
   = f.hidden_field :lng, :id => "lng", :value => "1"

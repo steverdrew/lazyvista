@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140605095237) do
+ActiveRecord::Schema.define(version: 20140622211234) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -46,11 +46,29 @@ ActiveRecord::Schema.define(version: 20140605095237) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
+  create_table "amenities", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "audiences", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "calendar_events", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "calendar_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "calendar_events", ["calendar_id"], name: "index_calendar_events_on_calendar_id"
 
   create_table "countries", force: true do |t|
     t.string   "name"
@@ -128,6 +146,7 @@ ActiveRecord::Schema.define(version: 20140605095237) do
     t.integer  "promo_video_file_size"
     t.datetime "promo_video_updated_at"
     t.integer  "audience_id"
+    t.text     "summary"
   end
 
   add_index "properties", ["audience_id"], name: "index_properties_on_audience_id"
@@ -151,6 +170,15 @@ ActiveRecord::Schema.define(version: 20140605095237) do
 
   add_index "property_assets", ["asset_type"], name: "index_property_assets_on_asset_type"
   add_index "property_assets", ["property_id"], name: "index_property_assets_on_property_id"
+
+  create_table "property_calendars", force: true do |t|
+    t.string   "name"
+    t.integer  "property_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "property_calendars", ["property_id"], name: "index_property_calendars_on_property_id"
 
   create_table "property_features", force: true do |t|
     t.integer  "property_id"

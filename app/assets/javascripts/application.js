@@ -16,6 +16,7 @@
 //= require jquery.fileupload
 //= require jquery.remotipart
 //= require foundation
+//= require fullcalendar
 
 $(window).load(function() { // makes sure the whole site is loaded  
   $("#status").fadeOut(); // will first fade out the loading animation

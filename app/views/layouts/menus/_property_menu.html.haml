@@ -1,0 +1,27 @@
+.sticky
+  %nav.top-bar{"data-topbar" => ""}
+    %section.top-bar-section
+      %ul.title-area
+        %li.name
+          %h1
+            = link_to @property.name, '#about'
+      / Right Nav Section
+      %ul.right
+        %li.divider
+        %li
+          %a{href: "#features"} Features
+        %li.divider
+        %li
+          %a{href: "#location"} Location
+        %li.divider
+        %li
+          %a{href: "#prices"} Prices
+        %li.divider
+        %li
+          %a{href: "#availability"} Availability
+        %li.divider
+        %li
+          %a{href: "#faq"} FAQs
+        %li.divider
+        %li.active
+          %a{href: "#book"} Book now

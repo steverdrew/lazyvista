@@ -10,6 +10,7 @@ $(document).ready(function() {
     $('#general_link').click();
   }
   
+
   
   
   //=============================================================
@@ -39,6 +40,11 @@ $(document).ready(function() {
   $('#property_description').on('change', function () {
     document.getElementById('edit_submit_button').disabled = false;
   });
+  
+  $('#property_sumary').on('change', function () {
+    document.getElementById('edit_submit_button').disabled = false;
+  });
+  
   
   //===========================================
   //Assets

@@ -1,0 +1,2 @@
+class PropertyCalendarsController < ApplicationController
+end

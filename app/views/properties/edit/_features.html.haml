@@ -1,3 +1,5 @@
+= form_for @property, :html => {:data => {:abide => ''}, :id => "general_form"},:url => update_general_property_url(@property),:method => :post, remote: true do |f|
+  = f.text_area :description, placeholder: 'Property description', :id => 'property_summary', :rows => '10'
 - @feature_types.each do |type|
   .row
     .small-12.large-12.columns

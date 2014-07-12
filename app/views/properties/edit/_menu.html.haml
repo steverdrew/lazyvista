@@ -8,13 +8,10 @@
       %a{href: "#assets", id: 'assets_link'} Media &amp; Docs
     %dd{"data-magellan-arrival" => "features"}
       %a{href: "#features", id: 'features'} Features
-    %dd{"data-magellan-arrival" => "descriptions"}
-      %a{href: "#descriptions", id: 'descriptions'} Descriptions
     %dd{"data-magellan-arrival" => "rates"}
       %a{href: "#rates", id: 'rates'} Rates &amp; availability
-    %dd{"data-magellan-arrival" => "amenities"}
-      %a{href: "#amenities", id: 'amenities'} Amenities
     %dd{"data-magellan-arrival" => "preview"}
-      %a{href: "#preview", id: 'preview'} Preview  
+      %a{href: property_path(@property), id: 'preview', target: "_blank"} Preview  
     %br/
     %hr
+    

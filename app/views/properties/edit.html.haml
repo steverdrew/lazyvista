@@ -1,6 +1,10 @@
 - content_for :javascript_includes do
-  = javascript_include_tag "properties/edit_form.js"
+  = javascript_include_tag "properties/edit.js"
   = javascript_include_tag "properties/general.js"
+  = javascript_include_tag "properties/calendar.js"
+  = javascript_include_tag "properties/map.js"
+  
+  
   
 #overlay
 #preloader
@@ -16,7 +20,7 @@
   #screen
     .small-3.large-3.columns
       #promo_image
-        = render "promo_image" 
+        = render "properties/edit/promo_image" 
     .small-9.large-9.columns
       #general
         = render "general"
@@ -55,24 +59,14 @@
       %br/  
       %h4.subheader.magellan-menu{"data-magellan-destination"=>"features"} Features
       %h6.subheader= 'Select the features relevant for this property'
-      = render "features"
-        
-.row
-  #screen
-    .small-12.large-12.columns
-      %p
-        %a{name: "descriptions"}
-      %br/  
-      %h4.subheader.magellan-menu{"data-magellan-destination"=>"descriptions"} Descriptions
-      %h6.subheader= 'Provide more detailed information'
-      = render "descriptions"
+      = render "/properties/edit/features"
       
 .row
   #screen
     .small-12.large-12.columns
       %p
-        %a{name: "amenities"}
+        %a{name: "rates"}
       %br/  
-      %h4.subheader.magellan-menu{"data-magellan-destination"=>"amenities"} Amenities
-      %h6.subheader= 'Show local amenities relevant to your property'
-      = render "location"
+      %h4.subheader.magellan-menu{"data-magellan-destination"=>"rates"} Rates &amp; availability
+      %h6.subheader= 'Update your property availability and rates'
+      = render "property_calendars/calendar"

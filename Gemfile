@@ -22,6 +22,7 @@ gem "font-awesome-rails"
 gem 'jquery.fileupload-rails'
 gem 'remotipart'
 gem 'paper_trail'
+gem 'fullcalendar-rails'
 
 group :test do
   gem 'cucumber-rails', :require => false

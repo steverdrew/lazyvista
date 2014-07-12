@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   resources :users do 
     
     collection do
-      get :properties  # add this line
+      resources :products
     end
     
   end

@@ -1,0 +1,2 @@
+class PropertyAmenitiesController < ApplicationController
+end

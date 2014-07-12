@@ -1,0 +1,73 @@
+%nav.top-bar(data-topbar)
+  %ul.title-area
+    %li.name
+      %h1
+        = link_to 'lazyvista', root_path
+    %li.toggle-topbar.menu-icon
+      %a{:href => '#'} 
+        %span Menu
+  %section.top-bar-section
+    %ul.right
+      - if user_signed_in?
+        -#%li.divider
+        -#%li{:title => "Notifications"}
+          = link_to properties_path do
+            %i.fa.fa-flag
+        -#%li.divider
+        -#%li{:title => "Kudos"}
+          = link_to properties_path do
+            %i.fa.fa-thumbs-o-up
+        %li.divider
+        %li.top-nav.has-dropdown{id: "nav1"}
+          = link_to properties_path do
+            &nbsp; Properties
+          %ul.dropdown
+            %li
+              = link_to new_property_path do
+                &nbsp; Add
+            %li
+              = link_to new_property_path do
+                &nbsp; Stats
+        %li.divider
+        -#Add notification system
+        -#%li.top-nav.has-dropdown{id: "nav2"}
+          = link_to new_property_path do
+            &nbsp; Bookings
+          %ul.dropdown
+            %li
+              = link_to new_property_path do
+                &nbsp; Calendar
+        -#%li.top-nav{id: "nav3"}
+          = link_to new_property_path do
+            &nbsp; Messages
+        -#%li.divider
+        -#%li.top-nav{id: "nav4"}
+          = link_to edit_user_registration_path do
+            %i.fa.fa-search
+            &nbsp; Search 
+        %li.top-nav{id: "nav5"}
+          = link_to edit_user_registration_path do
+            &nbsp;
+            = current_user.email
+        %li.divider
+        %li
+          = link_to destroy_user_session_path, :method => :delete do
+            %i.fa.fa-sign-out
+      - else 
+        %li.top-nav{id: "nav6"}
+          = link_to "Plans", plans_path 
+        %li.top-nav{id: "nav7"}
+          = link_to "Sign up", new_user_registration_path 
+        %li.top-nav.active{id: "nav8"}
+          = link_to 'Login',new_user_session_path 
+.row
+  - if request.path == '/users/edit'  
+    .large-12.columns
+      = render 'devise/custom/registrations/menu_edit'
+  - if(params.has_key?(:id))
+    - if request.path == '/properties/'+params[:id]+'/edit'
+      .large-12.columns
+        = render 'properties/edit/menu'
+  .large-12.columns
+    #messages
+      = render 'layouts/messages'         

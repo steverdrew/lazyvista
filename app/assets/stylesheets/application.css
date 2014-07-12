@@ -13,6 +13,7 @@
  *= require_self
  *= require foundation_and_overrides
  *= require font-awesome
+ *= require fullcalendar
  */
 
 /* Preloader */
@@ -39,7 +40,7 @@
 }
 
  
-#new-property-map {
+#new_property_map {
     position: relative;
     float: left;
     width: 100%;
@@ -49,7 +50,7 @@
     border: 1px solid #bbb;
   }
 
-#edit-property-map {
+#edit_property_map {
     position: relative;
     float: left;
     width: 100%;
@@ -58,6 +59,27 @@
     margin-right: 10px;
     border: 1px solid #bbb;
   }
+
+#preview_property_map {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: 1px solid #bbb;
+  }
+
+#show_property_map {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 400px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: 1px solid #bbb;
+  }
+
 
 #overlay {
     background-color: rgba(0, 0, 0, 0.8);

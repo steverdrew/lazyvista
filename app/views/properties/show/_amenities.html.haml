@@ -1,0 +1,7 @@
+%h4.subheader
+  View nearby amenities
+- @amenities.each do |a|
+  .p
+    %input#checkbox1{type: "checkbox"}/
+    %label{for: "checkbox1"} 
+      = a.name

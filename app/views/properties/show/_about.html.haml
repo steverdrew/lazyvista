@@ -1,0 +1,48 @@
+.row
+  .large-4.columns
+    %ul.clearing-thumbs{"data-clearing" => ""}
+      %li
+        %a.th{href: @property.promo_image.url}
+          %img{"data-caption" => @property.name, src: @property.promo_image(:medium)}
+    %br/
+    %ul.clearing-thumbs{"data-clearing" => ""}
+      - @images.each do |i|
+        %li
+          - if i.id.present?
+            %a.th{href: i.asset.url}
+              %img{"data-caption" => i.description, src: i.asset(:mini)}
+
+  .large-8.columns
+    .panel
+      .row
+        .large-4.columns
+          %input{id: "lat", type: "hidden", value: @lat}
+          %input{id: "lng", type: "hidden", value: @lng}
+          %input{id: "zoom", type: "hidden", value: "15"}    
+          #preview_property_map
+        .large-8.columns
+
+          %h3
+            = @property.name
+          %h5.subheader
+            = @place.name
+            ,
+            = @region.name
+            ,
+            = @country.name
+          %h6.subheader
+            = @property.bedrooms
+            bedroom 
+            = @property_type.name.downcase
+            sleeps
+            = @property.capacity 
+            comfortably.
+          
+      .row
+        .large-12.columns  
+          %hr
+          %p
+            = simple_format(@property.summary)
+            %a{href: '#lowdown'}Find out more
+
+  

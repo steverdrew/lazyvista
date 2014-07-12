@@ -20,7 +20,7 @@ class Property < ActiveRecord::Base
   accepts_nested_attributes_for :place
   
     
-  has_attached_file :promo_image, :styles => { :medium => "300x300>", :thumb => "100x100>", :mini => "50x50" }, :default_url => ""
+  has_attached_file :promo_image, :styles => { :medium => "300x300>", :thumb => "100x100>", :mini => "50x50>" }, :default_url => ""
   has_attached_file :promo_video
   
   validates_attachment_content_type :promo_image, :content_type => /\Aimage\/.*\Z/

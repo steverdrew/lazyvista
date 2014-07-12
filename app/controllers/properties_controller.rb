@@ -14,7 +14,33 @@ class PropertiesController < ApplicationController
   end
   
   def show
+        
     @property = Property.find(params[:id])
+    @place = Place.find(@property.place_id)
+    @region = Region.find(@property.region_id)
+    @country = Country.find(@property.country_id)
+    @property_type = PropertyType.find(@property.property_type_id)
+    @amenities = Amenity.all
+    data = Array.new
+    
+    @amenities.each do |a|
+     data << {name: a.name}
+    end
+    
+    logger.info('>>>>>>>>>>>>>'+data.to_s);
+    
+    property = Property.find(params[:id])
+    
+    @lat = property.lat.to_s
+    @lng = property.lng.to_s
+    @images = property.property_assets.asset_content_type_starts_with('image')
+    
+    respond_to do |format|
+      format.html
+      format.json {render json: @amenities}
+    end
+    
+    
   end
   
   def edit
@@ -181,7 +207,7 @@ class PropertiesController < ApplicationController
   
   private
     def property_params
-      params.require(:property).permit(:name, :description, :property_type_id, 
+      params.require(:property).permit(:name, :summary, :description, :property_type_id, 
         :country_id, :region_id, :place_id, :bedrooms, :capacity, :promo_image, :promo_video,
         :lat, :lng, :audience_id)
     end
